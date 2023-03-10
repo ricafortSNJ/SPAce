@@ -1,0 +1,28 @@
+.nav-item:hover {
+    background-color: #dca56a;
+  }
+ .navbar{
+  background: #dca56a ;
+  background: -webkit-linear-gradient(to right, #2d4b5a, #dca56a);  
+  background: linear-gradient(to right, #2d4b5a, #dca56a); 
+  color:antiquewhite !important;
+ }
+
+ button {
+    background-color:#2d4b5a !important;
+ }
+
+ #button {
+    background-color:#2d4b5a!important;
+    color: #dca56a;
+ }
+
+ h1, h2, h3, h4, h5, h6 {
+    color: #dca56a;
+    font-weight: bolder;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+   
+   
+ }
