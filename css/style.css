@@ -35,8 +35,6 @@
   --font-family-sans-serif: "Poppins", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 } */
-@import "~bootstrap/scss/bootstrap";
-
 
 *,
 *::before,
@@ -229,7 +227,6 @@ label {
 
 button {
   border-radius: 0;
-  background-color: #dca56a !important;
 }
 
 button:focus {
@@ -246,7 +243,6 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  
 }
 
 button,
@@ -370,12 +366,11 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
-  color: #dca56a;
+  color: #211E1C;
 }
 
 h1, .h1 {
   font-size: 2.5rem;
-  color: #dca56a;
 }
 
 @media (max-width: 1200px) {
@@ -9699,11 +9694,11 @@ h6,
 .footer p,
 .footer a,
 .footer i {
-  color: #2d4b5a !important;
+  color: #CCCCCC !important;
 }
 
 .footer .btn-primary i {
-  color: #2d4b5a !important;
+  color: #FFFFFF !important;
 }
 
 @media (min-width: 992px) {
