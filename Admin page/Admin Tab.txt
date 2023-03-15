@@ -1,0 +1,35 @@
+TABS
+Dashboard
+- Messages/Queries
+- Some sort of layout for website analytics
+
+- Site statistics
+- User management
+- Content management 
+- Analytics
+- Orders and sales
+- Marketing tools
+- Support tickets
+- Security
+- Settings
+
+Users
+- Table (email_address, password, user_type)
+- Create New Button
+- More Info, Edit, Delete Buttons
+Profiles
+- Table (username, first_name, last_name, mobile_number, social_media, location, privacy_setting)
+- Create New Button
+- More Info, Edit, Delete Buttons
+Professionals
+- Table (username, expertise, availability, rates)
+- Create New Button
+- More Info, Edit, Delete Buttons
+Reviews
+- Table (review_id, booking_id, reviewer, reviewee, rating, review)
+- Create New Button
+- More Info, Edit, Delete Buttons
+Bookings
+- Table (booking_id, username, professional, date, time, status)
+- Create New Button
+- More Info, Edit, Delete Buttons
