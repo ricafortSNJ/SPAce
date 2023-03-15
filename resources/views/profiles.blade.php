@@ -8,7 +8,6 @@
     @include("layouts/navbar")
     
     <h1>Profiles Page</h1>
-    <a href="/admin/profiles/create">Add a new profile</a>
     @if (count($profiles) > 0)
     <table class="table">
         <tr>

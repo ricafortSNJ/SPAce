@@ -7,7 +7,7 @@
 </head>
 
 <body>
-@include("layouts/navbar_main")
+@include("layouts/navbar_login")
 <h1>Login</h1>
 <form action="/login" method="POST">
     @csrf

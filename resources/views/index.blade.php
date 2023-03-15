@@ -47,7 +47,7 @@
                   </div>
                   <a href="contact.html" class="nav-item nav-link">Contact</a>
               </div>
-              <a href="" class="btn d-none d-lg-block" id="button">Book Now</a>
+              <a href="/register" class="btn d-none d-lg-block" id="button">Book Now</a>
           </div>
       </nav>
   </div>

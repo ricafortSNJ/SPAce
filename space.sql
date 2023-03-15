@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2023 at 02:48 PM
+-- Generation Time: Mar 15, 2023 at 02:04 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,7 +44,10 @@ INSERT INTO `bookings` (`booking_id`, `user_id`, `professional_id`, `date`, `tim
 (1, 1, 1, '2023-03-20', '13:00:00.000000', 'Pending'),
 (2, 1, 1, '2023-03-17', '09:30:00.000000', 'Cancelled'),
 (3, 1, 1, '2023-03-13', '20:00:00.000000', 'Approved'),
-(4, 1, 1, '2023-03-06', '14:00:00.000000', 'Paid');
+(4, 1, 1, '2023-03-06', '14:00:00.000000', 'Paid'),
+(5, 1, 2, '2023-03-20', '09:30:00.000000', 'Pending'),
+(6, 1, 1, '2023-03-20', '09:30:00.000000', 'Pending'),
+(7, 1, 2, '2023-03-20', '09:30:00.000000', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -89,8 +92,8 @@ CREATE TABLE `professionals` (
 INSERT INTO `professionals` (`professional_id`, `profile_id`, `expertise`, `availability`, `rates`, `location`) VALUES
 (1, 2, 'Skin Care Specialist', 'MWF 8:00-18:00', 1000, 'Tondo, Manila'),
 (2, 7, ' Reflexologist', 'MWF 8:00-18:00', 600, 'Batangas'),
-(3, 8, ' Reiki Practitioner', 'MWF 8:00-18:00', 450, 'Manila'),
-(4, 9, ' Makeup Artist', 'TTh 8:00-18:00', 800, 'Quezon City'),
+(3, 8, ' Reiki Practitioner', 'MWF 8:00-18:00', 450, 'Manila City'),
+(4, 9, ' Makeup Artist', 'TTh 8:00-18:00', 800, 'Makati City'),
 (5, 10, ' Hairstylist', 'MTWThF 8:00-18:00', 500, 'Quezon City');
 
 -- --------------------------------------------------------
@@ -125,7 +128,8 @@ INSERT INTO `profiles` (`profile_id`, `user_id`, `username`, `first_name`, `last
 (7, 7, 'markwilson', 'Mark', 'Wilson', '9319558628', 7, 'https://www.facebook.com/markwilson', 'ABCD'),
 (8, 8, 'emilykim', 'Emily', 'Kim', '9709963867', 8, 'https://www.facebook.com/emilykim', 'ABCD'),
 (9, 9, 'victorialee', 'Victoria', 'Lee', '9659782783', 9, 'https://www.facebook.com/victorialee', 'ABCD'),
-(10, 10, 'jessicamartin', 'Jessica', 'Martin', '9271589455', 10, 'https://www.facebook.com/jessicamartin', 'ABCD');
+(10, 10, 'jessicamartin', 'Jessica', 'Martin', '9271589455', 10, 'https://www.facebook.com/jessicamartin', 'ABCD'),
+(11, 16, 'acemalakas', 'Ace', 'of Spades', '9123456888', 3, 'https://www.facebook.com/aceofspades/', 'ABCD');
 
 -- --------------------------------------------------------
 
@@ -148,7 +152,12 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`review_id`, `booking_id`, `reviewer_id`, `reviewee_id`, `rating`, `review`, `last_update`) VALUES
-(1, 4, 1, 2, 1, 'Lalong nangati ang aking balat at sumama ang pakiramdam ko matapos ang aming session. Not recommended.', '2023-03-06 15:50:00.336000');
+(1, 1, 1, 2, 1, 'Lalong nangati ang aking balat at sumama ang pakiramdam ko matapos ang aming session. Not recommended.', '2023-03-14 19:22:30.431851'),
+(2, 2, 1, 2, 5, 'Tanggal ang sakit ng aking balakang! ', '2023-03-14 19:22:36.170868'),
+(3, 3, 1, 2, 3, 'Insert Review Here - hs82dk2', '2023-03-14 19:22:41.284192'),
+(4, 1, 2, 1, 3, 'Insert Review Here - 8sh27gg6', '2023-03-14 19:22:45.571507'),
+(5, 2, 2, 1, 4, 'Insert Review Here - y28h3usdbn', '2023-03-14 19:22:50.582074'),
+(6, 3, 2, 1, 4, 'Insert Review Here - 9823bds', '2023-03-06 15:50:00.336000');
 
 -- --------------------------------------------------------
 
@@ -160,31 +169,17 @@ CREATE TABLE `users` (
   `user_id` int(10) NOT NULL,
   `email_address` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `is_customer` tinyint(1) NOT NULL,
-  `is_professional` tinyint(1) NOT NULL
+  `user_type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `email_address`, `password`, `is_customer`, `is_professional`) VALUES
-(1, 'admin@gmail.com', '123456', 9, 0),
-(2, 'professional@gmail.com', 'gbhyj&R8y67utg', 0, 1),
-(3, 'sarahjohnson@gmail.com', 'f4p9rt0348', 1, 0),
-(4, 'lilynguyen@gmail.com', 'f430493', 1, 0),
-(5, 'michaeldavis@gmail.com', 'va90r9gf3', 1, 0),
-(6, 'mariahernandez@gmail.com', 'faw4rf9a', 1, 0),
-(7, 'markwilson@gmail.com', 'g0sg0858h', 0, 1),
-(8, 'emilykim@gmail.com', 'vg0808t54nu', 0, 1),
-(9, 'victorialee@gmail.com', 'fvm345q08308', 0, 1),
-(10, 'jessicamartin@gmail.com', 'fvg540w5', 0, 1),
-(13, 'test@gmail.com', '123456', 1, 0),
-(14, 'test@gmail.com', '$2y$10$EEaYGOelQJAWJcqQP3hwhufUyj0LM09IsCNLYB2XktGIeqn3EaeSi', 1, 0),
-(15, 'test1@gmail.com', '$2y$10$nLV4Kvb8ZmN7EQUWLt7ogeOtPA7JPahTLJTd7XHJY644uOdRJQDwu', 1, 0),
-(16, 'ace43@gmail.com', '$2y$10$iblggHHT.ELMW1Dlqp5C4.PNF/mLHMMNcvflP5Q3YUz0OJca1TBt.', 1, 0),
-(17, 'adminspace@gmail.com', '$2y$10$LJaW69bAb4VkYnBwNvrg/OSa3BS5a8f0W0zgeAUYKQKH.6ornwJKi', 9, 0),
-(18, 'ace44@gmail.com', '$2y$10$wZ3A3XvOIfBxaVtAFyOc/ejVln1e/4BWXT7Og.gzGmlWQvvN2Wlyu', 1, 0);
+INSERT INTO `users` (`user_id`, `email_address`, `password`, `user_type`) VALUES
+(0, 'adminspace@gmail.com', '$2y$10$LJaW69bAb4VkYnBwNvrg/OSa3BS5a8f0W0zgeAUYKQKH.6ornwJKi', 'admin'),
+(1, 'user3@gmail.com', '$2y$10$qWSzwVH575YUT8m0jLsQHe4K8pQlD4A5nydsMeU.RKGPZcNQ.IHyq', 'customer'),
+(2, 'user4@gmail.com', '$2y$10$SFKBOxn0ANjxGHVu2JmnXO5TTRg86.9HBUVSPPFUeAZfEKMs0Bfme', 'professional');
 
 -- --------------------------------------------------------
 
@@ -260,7 +255,7 @@ ALTER TABLE `user_images`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -278,19 +273,19 @@ ALTER TABLE `professionals`
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `profile_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `profile_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `review_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `review_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_images`

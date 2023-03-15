@@ -100,25 +100,28 @@ class UsersController extends Controller
     }
 
 
+    /**
+     * USER Functions
+     */
 
     public function showRegister() 
     {
-        return view('register');
+        return view('1_register');
     }
     public function Register(Request $request) 
     {
+        DB::statement('ALTER TABLE users AUTO_INCREMENT = 1');
         $user = new User;
         $user->email_address = $request->input("email_address");
         $user->password = Hash::make($request->input("password"));
-        $user->is_customer = 1;
-        $user->is_professional = 0;
+        $user->user_type = "customer";
         $user->save();
 
-        return redirect('home');
+        return redirect('login');
     }
     public function showLogin()
     {
-        return view('login');
+        return view('1_login');
     }
 
     public function login(Request $request)
@@ -128,11 +131,11 @@ class UsersController extends Controller
             if (Hash::check($request->password, $user->password)) {
                 $request->session()->put('id', $user->user_id);
                 $request->session()->put('email_address', $user->email_address);
-                $request->session()->put('is_customer', $user->is_customer);
-                //if (Session::get('is_customer') == '12') {
+                $request->session()->put('user_type', $user->user_type);
+                //if (Session::get('user_type') == 'admin') {
                 //    return redirect('/admin/users');
                 //}
-                return redirect('/home');
+                return redirect('profile');
             } else {
                 return "Incorrect password!";
             }
@@ -145,8 +148,46 @@ class UsersController extends Controller
         if (Session::has('id')) {
             Session::pull('id');
             Session::pull('email_address');
-            Session::pull('is_customer');
-            return redirect('/home');
+            Session::pull('user_type');
+            return redirect('/');
         }
+    }
+
+    public function showProfile()
+    {
+        //
+        //if (Session::get("id") == 17) {
+        //    $users = DB::select("SELECT * FROM users LIMIT 20");
+        //    return view('users', compact('users'));
+        //} else {
+        //    return view('unauthorized');
+        //}
+        $id = Session::get("id");
+        $user = DB::select("SELECT us.user_id, email_address, password, username, first_name, last_name, mobile_number, social_media FROM users AS us
+        INNER JOIN profiles AS p ON us.user_id = p.user_id WHERE us.user_id = " . $id);
+        return view('profilepage', compact('user'));
+        
+        
+        //return view('users_show', compact('user'));
+    }
+
+    public function showReview()
+    {
+        //
+        //if (Session::get("id") == 17) {
+        //    $users = DB::select("SELECT * FROM users LIMIT 20");
+        //    return view('users', compact('users'));
+        //} else {
+        //    return view('unauthorized');
+        //}
+        $id = Session::get("id");
+        $user_reviews = DB::select("SELECT username, booking_id, rating, review, last_update FROM users AS us
+        INNER JOIN profiles AS p ON us.user_id = p.user_id 
+        INNER JOIN reviews AS r ON us.user_id = reviewer_id
+        WHERE us.user_id = " . $id);
+        return view('reviewpage', compact('user_reviews'));
+        
+        
+        //return view('users_show', compact('user'));
     }
 }

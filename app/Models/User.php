@@ -14,8 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $user_id
  * @property string $email_address
  * @property string $password
- * @property bool $is_customer
- * @property bool $is_professional
+ * @property string $user_type
  *
  * @package App\Models
  */
@@ -25,11 +24,6 @@ class User extends Model
 	protected $primaryKey = 'user_id';
 	public $timestamps = false;
 
-	protected $casts = [
-		'is_customer' => 'bool',
-		'is_professional' => 'bool'
-	];
-
 	protected $hidden = [
 		'password'
 	];
@@ -37,7 +31,6 @@ class User extends Model
 	protected $fillable = [
 		'email_address',
 		'password',
-		'is_customer',
-		'is_professional'
+		'user_type'
 	];
 }
