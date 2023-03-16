@@ -45,7 +45,7 @@
             </div>
             <div id="mainListDiv" class="main_list">
                 <ul class="navlinks">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Testimonial</a></li>

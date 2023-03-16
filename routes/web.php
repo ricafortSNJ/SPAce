@@ -14,25 +14,16 @@ use App\Http\Controllers\ProfessionalsController;
 */
 
 Route::get('/', function() {
-    return view('index');
+    return view('sp_index');
 });
 
-Route::get('/register', [UsersController::class, 'showRegister']);
-Route::post('/register', [UsersController::class, 'Register']);
+Route::get('/sp_onboarding', function() {
+    return view('sp_onboarding');
+});
 
-Route::get('/login', [UsersController::class, 'showLogin']);
-Route::post('/login', [UsersController::class, 'login']);
-Route::get('/logout', [UsersController::class, 'logout']);
-
-Route::get('/profile', [DashboardController::class, 'showProfile']);
-Route::get('/professionals', [DashboardController::class, 'searchFunction']);
-Route::post('/professionals', [DashboardController::class, 'searchFunction']);
-Route::get('/bookings', [DashboardController::class, 'bookingHistory']);
-Route::post('/bookings', [DashboardController::class, 'addBooking']);
-Route::get('/reviews', [DashboardController::class, 'showReviews']);
-Route::get('/messages', [DashboardController::class, 'messages']);
-Route::get('/payments', [DashboardController::class, 'paymentHistory']);
-
+Route::get('/sp_about', function() {
+    return view('sp_about');
+});
 
 Route::get('/ad_index', function() {
     return view('ad_index');
@@ -62,20 +53,38 @@ Route::get('/ad_messaging', function() {
     return view('ad_messaging');
 });
 
-Route::get('/sp_index', function() {
-    return view('sp_index');
-});
 
-Route::get('/sp_onboarding', function() {
-    return view('sp_onboarding');
-});
-
-Route::get('/sp_about', function() {
-    return view('sp_about');
-});
 
 
 /*
+Route::get('/', function() {
+    return view('index');
+});
+
+Route::get('/register', [UsersController::class, 'showRegister']);
+Route::post('/register', [UsersController::class, 'Register']);
+
+Route::get('/login', [UsersController::class, 'showLogin']);
+Route::post('/login', [UsersController::class, 'login']);
+Route::get('/logout', [UsersController::class, 'logout']);
+
+Route::get('/profile', [DashboardController::class, 'showProfile']);
+Route::get('/professionals', [DashboardController::class, 'searchFunction']);
+Route::post('/professionals', [DashboardController::class, 'searchFunction']);
+Route::get('/bookings', [DashboardController::class, 'bookingHistory']);
+Route::post('/bookings', [DashboardController::class, 'addBooking']);
+Route::get('/reviews', [DashboardController::class, 'showReviews']);
+Route::get('/messages', [DashboardController::class, 'messages']);
+Route::get('/payments', [DashboardController::class, 'paymentHistory']);
+
+
+
+
+
+
+
+
+
 Route::get('/home', function() {
     return view('home');
 });

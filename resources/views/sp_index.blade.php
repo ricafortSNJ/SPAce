@@ -52,7 +52,7 @@
             
             <div id="mainListDiv" class="main_list">
                 <ul class="navlinks">
-                    <li><a href="/sp_index">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#testimonial">Testimonial</a></li>
