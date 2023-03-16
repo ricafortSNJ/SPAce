@@ -43,7 +43,7 @@
       <div class="form-group">
         <label for="dropdown3">Locations</label>
         <select name="location" class="form-control" id="dropdown3">
-          <option value="NCR">National Capital Region (NCR)</option>
+          <option value="'NCR'">National Capital Region (NCR)</option>
           <option value="CAR">Cordillera Administrative Region(CAR)</option>
           <option value="Region I">Ilocos Region (Region I)</option>
           <option value="Region II">Cagayan Valley (Region II)</option>
@@ -98,7 +98,19 @@
       <h2>Showing Nearby Professionals</h2>
       <div id="map"></div>
     </div>
+    
+    
     <script>
+      // List of Locations
+      var markers = [
+        @if ($expertise)
+        @foreach ($results as $r)
+        { position: [{{$r->lat}}, {{$r->lng}}], title: '{{$r->location}}' },
+        @endforeach
+        @endif
+      ];
+
+
       // Map Object + Center
       var map = L.map('map').setView([14.5995, 121.0364], 12); // Manila
       
@@ -108,12 +120,6 @@
         maxZoom: 18
       }).addTo(map);
       
-      // List of Locations
-      var markers = [
-        { position: [14.5547, 121.0211], title: 'Makati' },
-        { position: [14.5176, 121.0685], title: 'Taguig' },
-        { position: [14.5794, 121.0327], title: 'Mandaluyong' }
-      ];
       
       // Generate Pins
       markers.forEach(function(marker) {

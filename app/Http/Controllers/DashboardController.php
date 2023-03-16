@@ -66,7 +66,7 @@ class DashboardController extends Controller
         INNER JOIN profiles AS p ON us.user_id = p.user_id 
         INNER JOIN bookings AS b ON us.user_id = b.user_id
         WHERE b.user_id = " . $id);
-        
+
         return view('1_bookings', compact('user_bookings'));
     }
     public function searchFunction(Request $request)
@@ -74,9 +74,16 @@ class DashboardController extends Controller
         $expertise = $request->input("expertise");
         $rate = $request->input("rate");
         $location = $request->input("location");
-        $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, location FROM professionals AS pr1
-        INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id LIMIT 5");
-        return view('1_search', compact('expertise', 'rate', 'location', 'results'));
+        if ($expertise) {
+            $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr1.location, region, lat, lng FROM professionals AS pr1
+            INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id
+            INNER JOIN locations as l ON l.location = pr1.location WHERE region = " . $location);
+            return view('1_search', compact('expertise', 'rate', 'location', 'results'));
+        } else {
+            $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, location FROM professionals AS pr1
+            INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id LIMIT 5");
+            return view('1_search', compact('expertise', 'rate', 'location', 'results'));
+        }
     }
 
     

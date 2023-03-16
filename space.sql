@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2023 at 02:04 AM
+-- Generation Time: Mar 16, 2023 at 02:30 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -47,7 +47,34 @@ INSERT INTO `bookings` (`booking_id`, `user_id`, `professional_id`, `date`, `tim
 (4, 1, 1, '2023-03-06', '14:00:00.000000', 'Paid'),
 (5, 1, 2, '2023-03-20', '09:30:00.000000', 'Pending'),
 (6, 1, 1, '2023-03-20', '09:30:00.000000', 'Pending'),
-(7, 1, 2, '2023-03-20', '09:30:00.000000', 'Pending');
+(7, 1, 2, '2023-03-20', '09:30:00.000000', 'Pending'),
+(8, 1, 3, '2023-03-20', '09:30:00.000000', 'Pending'),
+(9, 1, 5, '2023-03-20', '09:30:00.000000', 'Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `locations`
+--
+
+CREATE TABLE `locations` (
+  `location_id` int(10) NOT NULL,
+  `location` varchar(50) NOT NULL,
+  `region` varchar(50) NOT NULL,
+  `lat` varchar(50) NOT NULL,
+  `lng` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `locations`
+--
+
+INSERT INTO `locations` (`location_id`, `location`, `region`, `lat`, `lng`) VALUES
+(1, 'Tondo, Manila', 'NCR', '14.6211', '120.9614'),
+(2, 'Batangas', 'Region IV-A', '13.7563', '121.0583'),
+(3, 'Manila City', 'NCR', '14.5995', '120.9842'),
+(4, 'Makati CIty', 'NCR', '14.5547', '121.0244'),
+(5, 'Quezon City', 'NCR', '14.676', '121.0437');
 
 -- --------------------------------------------------------
 
@@ -212,6 +239,12 @@ ALTER TABLE `bookings`
   ADD PRIMARY KEY (`booking_id`);
 
 --
+-- Indexes for table `locations`
+--
+ALTER TABLE `locations`
+  ADD PRIMARY KEY (`location_id`);
+
+--
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
@@ -255,7 +288,13 @@ ALTER TABLE `user_images`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `locations`
+--
+ALTER TABLE `locations`
+  MODIFY `location_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `payments`
