@@ -77,6 +77,22 @@ Route::get('/test_index', function() {
     return view('test_index');
 });
 
+Route::get('/c_index', function() {
+    return view('c_index');
+});
+
+Route::get('/c_profile', function() {
+    return view('c_profile');
+});
+
+Route::get('/c_messaging', function() {
+    return view('c_messaging');
+});
+
+Route::get('/c_bookings', function() {
+    return view('c_bookings');
+});
+
 
 
 
