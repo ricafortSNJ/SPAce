@@ -8,59 +8,12 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    
-    
-    @include("layouts/sp_head")
-
-    <!-- Function used to shrink nav bar removing paddings and adding black background -->
-    <script>
-        $(window).scroll(function() {
-            if ($(document).scrollTop() > 50) {
-                $('.nav').addClass('affix');
-                console.log("OK");
-            } else {
-                $('.nav').removeClass('affix');
-            }
-        });
-    </script>
+    @include("layouts/test_head")
 </head>
 <body>
-    <nav class="nav">
-        <div class="container">
-            <div class="logo" style="display: table-cell; vertical-align: middle;">
-                <a class="navbar-brand" href="#"><img src="img/logo.png"
-                  style="height: auto; width: 50px; padding-bottom: 5px; padding-top: 4px;" /></a>
-                  <a href="#home"><img src="img/sitename no tagline.png"
-                    style="height: auto; width: 125px; padding-bottom: 25px; padding-left: 10px; padding-top: 5px;" /></a>
-            </div>
-            <div id="mainListDiv" class="main_list">
-                <ul class="navlinks">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/#about">About</a></li>
-                    <li><a href="/#services">Services</a></li>
-                    <li><a href="/#testimonial">Testimonial</a></li>
-                    <li><a href="/#pricing">Pricing</a></li>
-                    <li><a href="/#contact">Contact</a></li>
-                    <li><a href="/sp_index">How it works</a></li>
-                </ul>
-            </div>
-            <span class="navTrigger">
-                <i></i>
-                <i></i>
-                <i></i>
-            </span>
-        </div>
-    </nav>
+
+    @include("layouts/test_nav")
+
 
     <!-- Carousel Start -->
     <section id="home">
@@ -389,23 +342,7 @@ for (i = 0; i < acc.length; i++) {
     <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    @include("layouts/test_end")
 </body>
 
 </html>

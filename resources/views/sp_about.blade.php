@@ -8,59 +8,11 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    
-    
-    @include("layouts/sp_head")
-
-    <!-- Function used to shrink nav bar removing paddings and adding black background -->
-    <script>
-        $(window).scroll(function() {
-            if ($(document).scrollTop() > 50) {
-                $('.nav').addClass('affix');
-                console.log("OK");
-            } else {
-                $('.nav').removeClass('affix');
-            }
-        });
-    </script>
+    @include("layouts/test_head")
 </head>
 <body>
-    <nav class="nav">
-        <div class="container">
-            <div class="logo" style="display: table-cell; vertical-align: middle;">
-                <a class="navbar-brand" href="#"><img src="img/logo.png"
-                  style="height: auto; width: 50px; padding-bottom: 5px;" /></a>
-                  <a href="#home"><img src="img/space.png"
-                    style="height: auto; width: 90px; padding-bottom: 20px;" /></a>
-            </div>
-            <div id="mainListDiv" class="main_list">
-                <ul class="navlinks">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Testimonial</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">How it works</a></li>
-                </ul>
-            </div>
-            <span class="navTrigger">
-                <i></i>
-                <i></i>
-                <i></i>
-            </span>
-        </div>
-    </nav>
+    @include("layouts/test_nav")
 
 <!-- Carousel -->
     <div class="container-fluid p-0 mb-5 pb-5">
@@ -258,7 +210,7 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
+    @include("layouts/test_end")
    
 </body>
 

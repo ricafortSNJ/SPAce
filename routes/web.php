@@ -73,6 +73,10 @@ Route::get('/p_messaging', function() {
     return view('p_messaging');
 });
 
+Route::get('/test_index', function() {
+    return view('test_index');
+});
+
 
 
 
