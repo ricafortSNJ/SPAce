@@ -53,6 +53,27 @@ Route::get('/ad_messaging', function() {
     return view('ad_messaging');
 });
 
+Route::get('/p_dashboard', function() {
+    return view('p_dashboard');
+});
+
+Route::get('/p_profile', function() {
+    return view('p_profile');
+});
+
+Route::get('/p_reviews', function() {
+    return view('p_reviews');
+});
+
+Route::get('/p_earnings', function() {
+    return view('p_earnings');
+});
+
+Route::get('/p_messaging', function() {
+    return view('p_messaging');
+});
+
+
 
 
 
