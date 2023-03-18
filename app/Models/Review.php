@@ -32,11 +32,8 @@ class Review extends Model
 		'booking_id' => 'int',
 		'reviewer_id' => 'int',
 		'reviewee_id' => 'int',
-		'rating' => 'int'
-	];
-
-	protected $dates = [
-		'last_update'
+		'rating' => 'int',
+		'last_update' => 'date'
 	];
 
 	protected $fillable = [

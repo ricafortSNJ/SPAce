@@ -10,35 +10,35 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Booking
+ * Class Message
  * 
- * @property int $booking_id
- * @property int $user_id
- * @property int $professional_id
+ * @property int $message_id
+ * @property int $sender_id
+ * @property int $receiver_id
+ * @property string $content
  * @property Carbon $date
  * @property Carbon $time
- * @property string $status
  *
  * @package App\Models
  */
-class Booking extends Model
+class Message extends Model
 {
-	protected $table = 'bookings';
-	protected $primaryKey = 'booking_id';
+	protected $table = 'messages';
+	protected $primaryKey = 'message_id';
 	public $timestamps = false;
 
 	protected $casts = [
-		'user_id' => 'int',
-		'professional_id' => 'int',
+		'sender_id' => 'int',
+		'receiver_id' => 'int',
 		'date' => 'date',
 		'time' => 'date'
 	];
 
 	protected $fillable = [
-		'user_id',
-		'professional_id',
+		'sender_id',
+		'receiver_id',
+		'content',
 		'date',
-		'time',
-		'status'
+		'time'
 	];
 }

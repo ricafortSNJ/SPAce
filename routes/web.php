@@ -2,97 +2,96 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UsersController;
-use App\Http\Controllers\ProfilesController;
-use App\Http\Controllers\ProfessionalsController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| MAIN Routes
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function() {
-    return view('sp_index');
+
+Route::get('/', [DashboardController::class, 'homeMap']);
+
+Route::get('/01_onboarding', function() {
+    return view('01_onboarding');
 });
 
-Route::get('/sp_onboarding', function() {
-    return view('sp_onboarding');
+Route::get('/01_about', function() {
+    return view('01_about');
 });
 
-Route::get('/sp_about', function() {
-    return view('sp_about');
-});
+Route::get('/test_register', [DashboardController::class, 'showRegister']);
+Route::post('/test_register', [DashboardController::class, 'Register']);
 
-Route::get('/ad_index', function() {
-    return view('ad_index');
-});
+Route::get('/test_login', [DashboardController::class, 'showLogin']);
+Route::post('/test_login', [DashboardController::class, 'login']);
+Route::get('/logout', [DashboardController::class, 'logout']);
 
-Route::get('/ad_users', function() {
-    return view('ad_users');
-});
 
-Route::get('/ad_profiles', function() {
-    return view('ad_profiles');
-});
+Route::post('/newsletter', [DashboardController::class, 'newsletter']);
+Route::post('/query', [DashboardController::class, 'query']);
+Route::post('/appointment', [DashboardController::class, 'appointment']);
 
-Route::get('/ad_professionals', function() {
-    return view('ad_professionals');
-});
+/*
+|--------------------------------------------------------------------------
+| CUSTOMER-DASHBOARD Routes
+|--------------------------------------------------------------------------
+*/
 
-Route::get('/ad_reviews', function() {
-    return view('ad_reviews');
-});
 
-Route::get('/ad_bookings', function() {
-    return view('ad_bookings');
-});
+Route::get('/test1_dashboard', [DashboardController::class, 'searchFunction']);
+Route::post('/test1_dashboard', [DashboardController::class, 'searchFunction']);
 
-Route::get('/ad_messaging', function() {
-    return view('ad_messaging');
-});
+Route::get('/test1_profile', [DashboardController::class, 'showProfile']);
+Route::get('/test1_profile/edit', [DashboardController::class, 'editProfile']);
+Route::post('/test1_profile/edit', [DashboardController::class, 'updateProfile']);
 
-Route::get('/p_dashboard', function() {
-    return view('p_dashboard');
-});
+Route::get('/test1_messages', [DashboardController::class, 'showMessages']);
+Route::get('/test1_reviews', [DashboardController::class, 'showReviews']);
+Route::get('/test1_bookings', [DashboardController::class, 'bookingHistory']);
+Route::post('/test1_bookings', [DashboardController::class, 'addBooking']);
+Route::get('/test1_payments', [DashboardController::class, 'paymentHistory']);
 
-Route::get('/p_profile', function() {
-    return view('p_profile');
-});
+//Route::get('/test1_payments/edit/{payment_id}', [DashboardController::class, 'editBooking']);
+//Route::post('/test1_payments/edit/{payment_id}', [DashboardController::class, 'updateBooking']);
 
-Route::get('/p_reviews', function() {
-    return view('p_reviews');
-});
 
-Route::get('/p_earnings', function() {
-    return view('p_earnings');
-});
+//Route::get('/test2_dashboard', [DashboardController::class, 'searchFunction_p']);
+//Route::post('/test2_dashboard', [DashboardController::class, 'addBooking_p']);
 
-Route::get('/p_messaging', function() {
-    return view('p_messaging');
-});
+Route::get('/test2_bookings/edit/{booking_id}', [DashboardController::class, 'editBooking']);
+Route::post('/test2_bookings/edit/{booking_id}', [DashboardController::class, 'updateBooking']);
 
-Route::get('/test_index', function() {
-    return view('test_index');
-});
+Route::get('/test2_profile', [DashboardController::class, 'showProfile_p']);
+Route::get('/test2_profile/edit', [DashboardController::class, 'editProfile_p']);
+Route::post('/test2_profile/edit', [DashboardController::class, 'updateProfile_p']);
 
-Route::get('/c_index', function() {
-    return view('c_index');
-});
+Route::get('/test2_messages', [DashboardController::class, 'showMessages_p']);
+Route::get('/test2_reviews', [DashboardController::class, 'showReviews_p']);
+Route::get('/test2_bookings', [DashboardController::class, 'bookingHistory_p']);
+Route::post('/test2_bookings', [DashboardController::class, 'addBooking_p']);
+Route::get('/test2_payments', [DashboardController::class, 'paymentHistory_p']);
 
-Route::get('/c_profile', function() {
-    return view('c_profile');
-});
 
-Route::get('/c_messaging', function() {
-    return view('c_messaging');
-});
 
-Route::get('/c_bookings', function() {
-    return view('c_bookings');
-});
 
+/*
+|--------------------------------------------------------------------------
+| PROFESSIONAL-DASHBOARD Routes
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN-DASHBOARD Routes
+|--------------------------------------------------------------------------
+*/
+
+/*
+
+
+*/
 
 
 
@@ -146,9 +145,3 @@ Route::resource('/admin/professionals', ProfessionalsController::class);
 Route::get('/profilepage', [UsersController::class, 'showProfile']);
 Route::get('/reviewpage', [UsersController::class, 'showReview']);
 */
-
-
-
-
-
-?>

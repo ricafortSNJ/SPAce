@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $expertise
  * @property string $availability
  * @property int $rates
- * @property string $location
  *
  * @package App\Models
  */
@@ -35,7 +34,6 @@ class Professional extends Model
 		'profile_id',
 		'expertise',
 		'availability',
-		'rates',
-		'location'
+		'rates'
 	];
 }

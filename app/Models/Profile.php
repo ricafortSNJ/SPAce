@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $image_id
  * @property string|null $social_media
  * @property string $privacy_setting
+ * @property string $location
  *
  * @package App\Models
  */
@@ -42,6 +43,7 @@ class Profile extends Model
 		'mobile_number',
 		'image_id',
 		'social_media',
-		'privacy_setting'
+		'privacy_setting',
+		'location'
 	];
 }
