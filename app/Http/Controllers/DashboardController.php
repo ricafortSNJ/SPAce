@@ -245,7 +245,7 @@ class DashboardController extends Controller
     public function bookingHistory()
     {
         $user_id = Session::get("user_id");
-        $user_bookings = DB::select("SELECT booking_id, b.user_id, b.professional_id, username, date, time, status FROM bookings as b
+        $user_bookings = DB::select("SELECT booking_id, b.user_id, b.professional_id, username, date, time, status, location, mobile_number, availability, expertise FROM bookings as b
         INNER JOIN professionals as p ON b.professional_id = p.professional_id
         INNER JOIN profiles as p1 ON p1.profile_id = p.profile_id
         WHERE b.user_id = " . $user_id);
@@ -406,11 +406,11 @@ class DashboardController extends Controller
     public function showReviews_p()
     {
         $user_id = Session::get("user_id");
-        $user_reviews = DB::select("SELECT username, booking_id, rating, review, last_update FROM users AS us
+        $user_reviews = DB::select("SELECT username, booking_id, rating, review, last_update, profile_id  FROM users AS us
         INNER JOIN profiles AS p ON us.user_id = p.user_id 
         INNER JOIN reviews AS r ON us.user_id = reviewer_id
         WHERE reviewer_id = " . $user_id);
-        $professional_reviews = DB::select("SELECT username, booking_id, rating, review, last_update FROM users AS us
+        $professional_reviews = DB::select("SELECT username, booking_id, rating, review, last_update, profile_id  FROM users AS us
         INNER JOIN profiles AS p ON us.user_id = p.user_id 
         INNER JOIN reviews AS r ON us.user_id = reviewer_id
         WHERE reviewee_id = " . $user_id);

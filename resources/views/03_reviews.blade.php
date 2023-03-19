@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
 <!-- CSS link -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-8Kv7V9e9r1n7IQWmAT+Rv/OVlUDJtA/7tTzKZTn+2uJ9sLRsLTrjKPPyI+FiN1jB" crossorigin="anonymous">
 
@@ -13,7 +14,6 @@
 
 
 
-    <title>Reviews</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/3_assets/css/reviews.css">
 </head>
@@ -69,82 +69,55 @@
             <div class="review-recived">
                 <h1>Reviews Received</h1>
               <hr>
+              @if (count($professional_reviews) > 0)
+              @foreach ($professional_reviews as $pr)
+              @if ($loop->iteration > 5)
+              @break
+              @endif
                 <div class="comment">
-                  <img src="https://i.imgur.com/zQZSWrt.jpg" alt="Profile picture of Brian Selter">
+                  <img src="/image_uploads/{{$pr->profile_id}}.jpg" alt="Profile picture of Brian Selter">
                   <div class="comment-details">
                     <div class="comment-header">
-                      <h3>Brian Selter</h3>
-                      <span class="comment-time">12h ago</span>
-                      <span class="comment-badge"><ion-icon name="star-outline"></ion-icon>Top Comment</span>
+                      <h3>By: {{$pr->username}}</h3>
+                      <h5>Booking Id: {{$pr->booking_id}}</h5>
+                      <span class="comment-time">Last Update: {{$pr->last_update}}</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p style="color: black;">Comments: {{$pr->review}}</p>
                   </div>
                 </div>
               <hr>
-                <div class="comment">
-                  <img src="https://i.imgur.com/3J8lTLm.jpg" alt="Profile picture of Seltos Majito">
-                  <div class="comment-details">
-                    <div class="comment-header">
-                      <h3>Seltos Majito</h3>
-                      <span class="comment-time">2h ago</span>
-                      <span class="comment-badge"><ion-icon name="star-outline"></ion-icon>Top Comment</span>
-                    </div>
-                    <p>Tellus in hac habitasse platea dictumst vestibulum. Lectus nulla at volutpat diam ut venenatis tellus. Aliquam etiam erat velit scelerisque in dictum non consectetur. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra. Aliquam faucibus purus in massa.</p>
-                  </div>
-                </div>
-              <hr>
-                <div class="comment">
-                  <img src="https://i.imgur.com/agRGhBc.jpg" alt="Profile picture of Maria Santola">
-                  <div class="comment-details">
-                    <div class="comment-header">
-                      <h3>Maria Santola</h3>
-                      <span class="comment-time">12h ago</span>
-                      <span class="comment-badge"><ion-icon name="star-outline"></ion-icon>Top Comment</span>
-                    </div>
-                    <p>Id eu nisl nunc mi ipsum faucibus. Massa massa ultricies mi quis hendrerit dolor. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Habitasse platea dictumst quisque sagittis purus sit amet volutpat. Urna condimentum mattis pellentesque id. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                  </div>
-                </div>
-              </div>
+              @endforeach
+              @else
+                <p>Nothing to show here</p>
+              @endif
+
+            </div>
 
               <div class="review-given">
                 <h1>Reviews Given</h1>
               <hr>
+              @if (count($user_reviews) > 0)
+              @foreach ($user_reviews as $ur)
+              @if ($loop->iteration > 5)
+              @break
+              @endif
                 <div class="comment">
-                  <img src="https://i.imgur.com/zQZSWrt.jpg" alt="Profile picture of Brian Selter">
+                  <img src="/image_uploads/{{$ur->profile_id}}.jpg" alt="Profile picture of Brian Selter">
                   <div class="comment-details">
                     <div class="comment-header">
-                      <h3>Brian Selter</h3>
-                      <span class="comment-time">12h ago</span>
-                      <span class="comment-badge"><ion-icon name="star-outline"></ion-icon>Top Comment</span>
+                      <h3>By: {{$ur->username}}</h3>
+                      <h5>Booking Id: {{$ur->booking_id}}</h5>
+                      <span class="comment-time">Last Update: {{$ur->last_update}}</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p style="color: black;">Comments: {{$ur->review}}</p>
                   </div>
                 </div>
               <hr>
-                <div class="comment">
-                  <img src="https://i.imgur.com/3J8lTLm.jpg" alt="Profile picture of Seltos Majito">
-                  <div class="comment-details">
-                    <div class="comment-header">
-                      <h3>Seltos Majito</h3>
-                      <span class="comment-time">2h ago</span>
-                      <span class="comment-badge"><ion-icon name="star-outline"></ion-icon>Top Comment</span>
-                    </div>
-                    <p>Tellus in hac habitasse platea dictumst vestibulum. Lectus nulla at volutpat diam ut venenatis tellus. Aliquam etiam erat velit scelerisque in dictum non consectetur. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra. Aliquam faucibus purus in massa.</p>
-                  </div>
-                </div>
-              <hr>
-                <div class="comment">
-                  <img src="https://i.imgur.com/agRGhBc.jpg" alt="Profile picture of Maria Santola">
-                  <div class="comment-details">
-                    <div class="comment-header">
-                      <h3>Maria Santola</h3>
-                      <span class="comment-time">12h ago</span>
-                      <span class="comment-badge"><ion-icon name="star-outline"></ion-icon>Top Comment</span>
-                    </div>
-                    <p>Id eu nisl nunc mi ipsum faucibus. Massa massa ultricies mi quis hendrerit dolor. Arcu bibendum at varius vel pharetra vel turpis nunc eget. Habitasse platea dictumst quisque sagittis purus sit amet volutpat. Urna condimentum mattis pellentesque id. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                  </div>
-                </div>
-                <hr>
+              @endforeach
+              @else
+                <p>Nothing to show here</p>
+              @endif
+
               </div>
 
             </div>

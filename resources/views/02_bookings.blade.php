@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
 <!-- CSS link -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-8Kv7V9e9r1n7IQWmAT+Rv/OVlUDJtA/7tTzKZTn+2uJ9sLRsLTrjKPPyI+FiN1jB" crossorigin="anonymous">
 
@@ -13,7 +14,6 @@
 
 
 
-    <title>Professional's Dashboard</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/2_assets/css/booking.css">
 </head>
@@ -29,60 +29,39 @@
         @include("layouts/02_topbar")
 
 <div class="booking-wrapper">
-    <div class="booking-card">
-        <div class="user-profile">
-          <img src="/2_assets/imgs/f1.jpg" alt="User Profile Picture">
-        </div>
-        <div class="user-info">
-          <h2>Name: <span>Maritess Temporal</span></h2>
-          <p>Contact#: <span>0945717478845</span></p>
-          <p>BookingID: <span>121211</span></p>
-          <p>Address: <span>134 Trinity Avenue Cubao QC</span></p>
-          <div class="time-sched"><p>Schedule: <span>Thursday 10AM-12PM 03/23/2023</span></p></div>
-
-          <div class="services-wrapper"><p>Services: <ul><li>Swedish Massage</li><li>Manicure and Pedicure</li></ul></p></div>
-
-
-        </div>
-        <div class="status-badge status-cancelled">Cancelled</div>
-<div class="buttons">
-        <div class="buttons">
-          <button class="accept">Accept</button>
-          <button class="decline">Decline</button>
-        </div>
-        
-      </div>
-
-
-
-    </div>
+    
+              @if (count($user_bookings) > 0)
+              @foreach ($user_bookings as $ub)
               <div class="booking-card">
                 <div class="user-profile">
                   <img src="/2_assets/imgs/f1.jpg" alt="User Profile Picture">
                 </div>
                 <div class="user-info">
-                  <h2>Name: <span>Maritess Temporal</span></h2>
-                  <p>Contact#: <span>0945717478845</span></p>
-                  <p>BookingID: <span>121211</span></p>
-                  <p>Address: <span>134 Trinity Avenue Cubao QC</span></p>
-                  <div class="time-sched"><p>Schedule: <span>Thursday 10AM-12PM 03/23/2023</span></p></div>
+                  <h2>Name: <span>{{$ub->username}}</span></h2>
+                  <p>Contact #: <span>{{$ub->mobile_number}}</span></p>
+                  <p>BookingID: <span>2023-123-{{$ub->booking_id}}</span></p>
+                  <p>Address: <span>{{$ub->location}}</span></p>
+                  <div class="time-sched"><p>Schedule: <span>{{$ub->availability}}</span></p></div>
 
-                  <div class="services-wrapper"><p>Services: <ul><li>Swedish Massage</li><li>Manicure and Pedicure</li></ul></p></div>
+                  <div class="services-wrapper"><p>Expertise: {{$ub->expertise}}</p></div>
 
 
                 </div>
                 <div class="status-badge status-ongoing">On-Going</div>
-  <div class="buttons">
                 <div class="buttons">
-                  <button class="accept">Accept</button>
-                  <button class="decline">Decline</button>
+                  <div class="buttons">
+                    <button class="accept">Accept</button>
+                    <button class="decline">Decline</button>
+                  </div>
                 </div>
-               
               </div>
+              @endforeach
+              @else
+              <p>Nothing to show here</p>
+              @endif
 
 
 
-            </div>
 
               <div class="booking-card">
                 <div class="user-profile">

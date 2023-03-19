@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
+    <title>Dashboard</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
@@ -268,8 +268,17 @@
 
 
       // Map Object + Center
-      var map = L.map('map').setView([14.5995, 121.0364], 12); // Manila
-      
+        @if ($expertise)
+        @foreach ($results as $r)
+        @if ($loop->iteration > 1)
+        @break
+        @endif
+      var map = L.map('map').setView([{{$r->lat}}, {{$r->lng}}], 10);
+        @endforeach
+        @else
+      var map = L.map('map').setView([14.5995, 121.0364], 11); // Manila
+        @endif
+
       // Actual Map
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',

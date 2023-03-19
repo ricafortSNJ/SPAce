@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfessionalsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfilesController;
+use App\Http\Controllers\ProfessionalsController;
+use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\UsersController;
 
 /*

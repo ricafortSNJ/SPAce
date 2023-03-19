@@ -20,74 +20,49 @@
                     </div>
 
                     <table class="table">
-                        <tr>
-                            <th>Booking ID</th>
-                            <th>Username</th>
-                            <th>Professional</th>
+                        <tr style="text-align: left;">
+                            <th>User ID</th>
+                            <th>Professional ID</th>
                             <th>Date</th>
                             <th>Time</th>
                             <th>Status</th>
                             <th>Options</th>
                         </tr>
+                        @foreach ($bookings as $booking)
                         <tr>
-                            <td>{{$f->booking_id}}</td>
-                            <td>{{$f->username}}</td>
-                            <td>{{$f->professional}}</td>
-                            <td>{{$f->date}}</td>
-                            <td>{{$f->time}}</td>
-                            <td>{{$f->status}}</td>
+                            <td>{{$booking->user_id}}</td>
+                            <td>{{$booking->professional_id}}</td>
+                            <td>{{$booking->date}}</td>
+                            <td>{{$booking->time}}</td>
+                            <td>{{$booking->status}}</td>
                             <td>
                                 <div class="col-lg-4" style="text-align: center;">
-                                    <button class="btn more-info">More Info</button>
-                                    <button class="btn edit">Edit</button>
-                                    <button class="btn delete">Delete</button>
+                                    <a class="btn more-info" href="bookings/{{$booking->booking_id}}">More Info</a>
+                                    <a class="btn edit" href="bookings/{{$booking->booking_id}}/edit">Edit</a>
+                                    <form id="deleteFinal" action="/admin/bookings/{{$booking->booking_id}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="button" onclick="confirmDelete()">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>{{$f->review_id}}</td>
-                            <td>{{$f->booking_id}}</td>
-                            <td>{{$f->reviewer}}</td>
-                            <td>{{$f->reviewee}}</td>
-                            <td>{{$f->rating}}</td>
-                            <td>{{$f->review}}</td>
-                            <td>
-                                <div class="col-lg-4" style="text-align: center;">
-                                    <button class="btn more-info">More Info</button>
-                                    <button class="btn edit">Edit</button>
-                                    <button class="btn delete">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>{{$f->review_id}}</td>
-                            <td>{{$f->booking_id}}</td>
-                            <td>{{$f->reviewer}}</td>
-                            <td>{{$f->reviewee}}</td>
-                            <td>{{$f->rating}}</td>
-                            <td>{{$f->review}}</td>
-                            <td>
-                                <div class="col-lg-4" style="text-align: center;">
-                                    <button class="btn more-info">More Info</button>
-                                    <button class="btn edit">Edit</button>
-                                    <button class="btn delete">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
+
+                        <script>
+                            function confirmDelete() {
+                                if (confirm('Are you sure you want to delete this entry?')) {
+                                    document.getElementById('deleteFinal').submit();
+                                }
+                            }
+                        </script>
                        
 
                     </table>
                     <div class="col-lg-4" style="text-align: center;">
-                        
-                        <button class="btn create-new">Create New</button>
-                        
+                        <a class="btn create-new" href="/admin/bookings/create">Create New</a>
                     </div>
                 </div>
-            </div>
-
-            
-        </div>
-    </div>
 
     
 

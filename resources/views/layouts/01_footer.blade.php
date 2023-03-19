@@ -11,10 +11,10 @@
                     <p><i class="fa fa-phone-alt mr-2"></i>(02) 620 6789</p>
                     <p><i class="fa fa-envelope mr-2"></i>info@space.com</p>
                     <div class="d-flex justify-content-start mt-4">
-                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://twitter.com/home"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://twitter.com/space032023"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/profile.php?id=100091118220444"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/space_relaxationgateway/"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6 pl-lg-5">
