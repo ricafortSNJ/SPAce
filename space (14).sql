@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 09:06 PM
+-- Generation Time: Mar 20, 2023 at 12:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,7 +43,8 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`appointment_id`, `name`, `email_address`, `request_date`, `request_time`, `service`, `date`, `time`) VALUES
-(1, 'Jonas', 'ace43@gmail.com', '2023-03-21 00:00:00', '2023-03-18 05:30:00', '1', '2023-03-19', '02:36:47');
+(1, 'Jonas', 'ace43@gmail.com', '2023-03-21 00:00:00', '2023-03-18 05:30:00', '1', '2023-03-19', '02:36:47'),
+(2, 'Jonas', 'adminspace1@gmail.com', '03/21/2023', '4:20 AM', '2', '2023-03-20', '04:34:17');
 
 -- --------------------------------------------------------
 
@@ -55,8 +56,8 @@ CREATE TABLE `bookings` (
   `booking_id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
   `professional_id` int(10) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `time` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -70,7 +71,7 @@ INSERT INTO `bookings` (`booking_id`, `user_id`, `professional_id`, `date`, `tim
 (3, 1, 3, '2023-03-03', '11:30:00', 'Paid'),
 (4, 1, 4, '2023-03-04', '12:30:00', 'Paid'),
 (5, 1, 5, '2023-03-05', '13:30:00', 'Paid'),
-(6, 1, 1, '2023-03-06', '14:30:00', 'Paid'),
+(6, 1, 1, '2023-03-06', '14:30:00', 'Pending'),
 (7, 1, 2, '2023-03-07', '15:30:00', 'Paid'),
 (8, 1, 3, '2023-03-08', '09:00:00', 'Paid'),
 (9, 1, 4, '2023-03-09', '10:00:00', 'Paid'),
@@ -98,7 +99,8 @@ INSERT INTO `bookings` (`booking_id`, `user_id`, `professional_id`, `date`, `tim
 (31, 97, 1, '2023-03-14', '13:30:00', 'Paid'),
 (32, 98, 2, '2023-03-15', '14:30:00', 'Paid'),
 (33, 99, 3, '2023-03-16', '15:30:00', 'Paid'),
-(34, 100, 4, '2023-03-17', '09:00:00', 'Paid');
+(34, 100, 4, '2023-03-17', '09:00:00', 'Paid'),
+(35, 1, 1, '03/21/2023', '8:30 AM', 'Paid');
 
 -- --------------------------------------------------------
 
@@ -336,7 +338,10 @@ INSERT INTO `payments` (`payment_id`, `booking_id`, `user_id`, `amount`, `date`,
 (3, 9, 1, 800, '2023-03-20', '03:46:11', 'Cha', '3333', '01', '23'),
 (4, 9, 1, 800, '2023-03-20', '03:52:22', 'Cha', '333', '01', '23'),
 (5, 9, 1, 800, '2023-03-20', '03:59:51', 'Cha', '333', '09', '26'),
-(6, 9, 1, 800, '2023-03-20', '04:03:57', 'Cha', '333', '01', '23');
+(6, 9, 1, 800, '2023-03-20', '04:03:57', 'Cha', '333', '01', '23'),
+(7, 8, 1, 450, '2023-03-20', '05:46:01', 'Cha', '333', '01', '25'),
+(8, 9, 1, 800, '2023-03-20', '06:28:00', 'Charmaine', '333', '09', '23'),
+(9, 35, 1, 1000, '2023-03-20', '07:09:29', 'Charmaine', '333', '01', '23');
 
 -- --------------------------------------------------------
 
@@ -839,7 +844,9 @@ INSERT INTO `user_images` (`image_id`, `user_id`, `image`) VALUES
 (99, 99, '1'),
 (100, 100, '1'),
 (101, 1, '20230319073200000057t6gy7huy78jikko.png'),
-(102, 1, '202303190743000000T6Y7U8IJ9KOLP.png');
+(102, 1, '202303190743000000T6Y7U8IJ9KOLP.png'),
+(103, 1, '2023031921320000001.jpg'),
+(104, 1, '20230319213400000080.jpg');
 
 --
 -- Indexes for dumped tables
@@ -925,7 +932,7 @@ ALTER TABLE `user_images`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `appointment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `bookings`
@@ -961,7 +968,7 @@ ALTER TABLE `newsletters`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `professionals`
@@ -991,7 +998,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_images`
 --
 ALTER TABLE `user_images`
-  MODIFY `image_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `image_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

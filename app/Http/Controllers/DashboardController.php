@@ -62,7 +62,7 @@ class DashboardController extends Controller
                 if (Session::get('user_type') == 'admin') {
                     return redirect('/admin/profiles');
                 } else if (Session::get('user_type') == 'customer') {
-                    return redirect('/02_profile');
+                    return redirect('/02_dashboard');
                 } else if (Session::get('user_type') == 'professional') {
                     return redirect('/03_profile');
                 }
@@ -253,7 +253,7 @@ class DashboardController extends Controller
         $user_bookings = DB::select("SELECT booking_id, b.user_id, b.professional_id, username, date, time, status, location, mobile_number, availability, expertise, rates FROM bookings as b
         INNER JOIN professionals as p ON b.professional_id = p.professional_id
         INNER JOIN profiles as p1 ON p1.profile_id = p.profile_id
-        WHERE b.user_id = " . $user_id . " ORDER BY date DESC");
+        WHERE b.user_id = " . $user_id . " ORDER BY booking_id DESC");
         return view('02_bookings', compact('user_bookings'));
     }
 
@@ -326,6 +326,29 @@ class DashboardController extends Controller
         $payment->year_exp = $request->input('year');
         $payment->save();
         
+
+        return redirect('02_bookings');
+    }
+
+
+    public function showBooking($professional_id)
+    {
+        $user_id = Session::get("user_id");
+        $professional = DB::select("SELECT * FROM professionals
+        WHERE professional_id =" . $professional_id);
+        return view('02_booking-set', compact('professional'));
+    }
+    public function setBooking(Request $request)
+    {   
+        $user_id = Session::get("user_id");
+        DB::statement('ALTER TABLE bookings AUTO_INCREMENT = 1');
+        $booking = new Booking;
+        $booking->user_id = $user_id;
+        $booking->professional_id = $request->input("professional_id");
+        $booking->date = $request->input("date");
+        $booking->time = $request->input("time");
+        $booking->status = 'Pending';
+        $booking->save();
 
         return redirect('02_bookings');
     }
@@ -463,7 +486,7 @@ class DashboardController extends Controller
         $professional_id = Session::get("professional_id");
         $user_bookings = DB::select("SELECT booking_id, b.user_id, username, location, professional_id, date, time, status, mobile_number FROM bookings as b
         INNER JOIN profiles as p ON p.user_id = b.user_id
-        WHERE professional_id = " . $professional_id);
+        WHERE professional_id = " . $professional_id . " ORDER BY booking_id DESC");
         return view('03_bookings', compact('user_bookings'));
     }
 

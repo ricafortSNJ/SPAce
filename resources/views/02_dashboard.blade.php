@@ -214,18 +214,14 @@
                                   <br>
                                   <small>Availability: {{$r->availability}}</small>
                                 </h5>
-                            <!-- </tr>
-                            <tr> -->
                                 <td>
                                 <div class="icons">
                                   <button class="btn" style="margin-left: 10px;"><i class="las la-user-circle"></i></button>
                                   <span style="margin-left: 10px;">    </span>
                                   <button class="btn"><i class="las la-comment"></i></button>
                                   
-                                <form action="/02_bookings" method="POST">
-                                  @csrf
-                                  <button class="btn book-now">Book Now</button>
-                                </form>
+                            
+                                  <a class="btn book-now" href="/02_booking-set/{{$r->professional_id}}"><button class="accept">Book Now</button></a>
 
                                 
                                 </div>
