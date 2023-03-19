@@ -80,7 +80,13 @@ Route::get('/test1_payments', [DashboardController::class, 'paymentHistory']);
 | PROFESSIONAL-DASHBOARD Routes
 |--------------------------------------------------------------------------
 */
+Route::get('/03_dashboard', function() {
+    return view('03_dashboard');
+});
 
+Route::get('/03_earnings', function() {
+    return view('03_earnings');
+});
 Route::get('/03_bookings/edit/{booking_id}', [DashboardController::class, 'editBooking']);
 Route::post('/03_bookings/edit/{booking_id}', [DashboardController::class, 'updateBooking']);
 

@@ -63,7 +63,7 @@ class DashboardController extends Controller
                 } else if (Session::get('user_type') == 'customer') {
                     return redirect('/02_profile');
                 } else if (Session::get('user_type') == 'professional') {
-                    return redirect('test2_profile');
+                    return redirect('/03_profile');
                 }
             } else {
                 return "Incorrect password!";
@@ -290,7 +290,7 @@ class DashboardController extends Controller
         $user_id = Session::get("user_id");
         $booking = DB::select("SELECT booking_id, user_id, professional_id, date, time, status FROM bookings
         WHERE booking_id =" . $booking_id);
-        return view('test2_bookings-edit', compact('booking'));
+        return view('03_bookings-edit', compact('booking'));
     }
 
     // Update Booking Status (to be edited)
@@ -302,7 +302,7 @@ class DashboardController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        return redirect('test2_bookings');
+        return redirect('03_bookings');
     }
 
     //------------------------
@@ -344,7 +344,7 @@ class DashboardController extends Controller
             session()->put('username', $firstUser->username);
             session()->put('professional_id', $firstUser->professional_id);
         }
-        return view('test2_profile', compact('user'));
+        return view('03_profile', compact('user'));
     }
 
     // Show Profile Edit Page
@@ -352,7 +352,7 @@ class DashboardController extends Controller
     {
         $user_id = Session::get("user_id");
         $user = DB::select("SELECT us.user_id, professional_id, email_address, username, first_name, last_name, mobile_number, social_media, location, expertise, availability, rates FROM users AS us INNER JOIN profiles AS p ON us.user_id = p.user_id INNER JOIN professionals AS p1 ON p.profile_id = p1.profile_id WHERE us.user_id = " . $user_id);
-        return view('test2_profile-edit', compact('user'));
+        return view('03_profile-edit', compact('user'));
     }
 
     // Update DB - redirect to Profile page
@@ -380,7 +380,7 @@ class DashboardController extends Controller
             'rates' => $request->input('rates'),
         ]);
 
-        return redirect('test2_profile');
+        return redirect('03_profile');
     }
 
 
@@ -398,7 +398,7 @@ class DashboardController extends Controller
         } else {
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location FROM professionals AS pr1
             INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id LIMIT 5");
-            return view('test2_dashboard', compact('expertise', 'rate', 'location', 'results'));
+            return view('03_dashboard', compact('expertise', 'rate', 'location', 'results'));
         }
     }
     
@@ -414,7 +414,7 @@ class DashboardController extends Controller
         INNER JOIN profiles AS p ON us.user_id = p.user_id 
         INNER JOIN reviews AS r ON us.user_id = reviewer_id
         WHERE reviewee_id = " . $user_id);
-        return view('test2_reviews', compact('user_reviews', 'professional_reviews'));
+        return view('03_reviews', compact('user_reviews', 'professional_reviews'));
     }
 
     // Show Messages
@@ -428,7 +428,7 @@ class DashboardController extends Controller
         INNER JOIN profiles AS p ON p.user_id = m.sender_id
         WHERE receiver_id = " . $user_id);
         
-        return view('test2_messages', compact('messages_received', 'messages_sent'));
+        return view('03_messages', compact('messages_received', 'messages_sent'));
     }
 
     // Show Bookings
@@ -439,7 +439,7 @@ class DashboardController extends Controller
         $user_bookings = DB::select("SELECT booking_id, b.user_id, username, location, professional_id, date, time, status FROM bookings as b
         INNER JOIN profiles as p ON p.user_id = b.user_id
         WHERE professional_id = " . $professional_id);
-        return view('test2_bookings', compact('user_bookings'));
+        return view('03_bookings', compact('user_bookings'));
     }
 
     // Book Appointment
@@ -459,7 +459,7 @@ class DashboardController extends Controller
     //     INNER JOIN bookings AS b ON us.user_id = b.user_id
     //     WHERE b.user_id = " . $user_id);
 
-    //     return view('test2_bookings', compact('user_bookings'));
+    //     return view('03_bookings', compact('user_bookings'));
     // }
 
     // Show Payments
@@ -471,7 +471,7 @@ class DashboardController extends Controller
         INNER JOIN bookings AS b ON b.booking_id = p.booking_id
         INNER JOIN profiles AS p1 ON p1.user_id = p.user_id
         WHERE professional_id = " . $professional_id);
-        return view('test2_payments', compact('user_payments'));
+        return view('03_payments', compact('user_payments'));
     }
 
     // Edit Booking Status
@@ -480,7 +480,7 @@ class DashboardController extends Controller
         $user_id = Session::get("user_id");
         $booking = DB::select("SELECT booking_id, user_id, professional_id, date, time, status FROM bookings
         WHERE booking_id =" . $booking_id);
-        return view('test2_bookings-edit', compact('booking'));
+        return view('03_bookings-edit', compact('booking'));
     }
 
     // Update Booking Status
@@ -492,7 +492,7 @@ class DashboardController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        return redirect('test2_bookings');
+        return redirect('03_bookings');
     }
     
 
