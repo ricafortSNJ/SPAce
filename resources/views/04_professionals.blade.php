@@ -20,66 +20,47 @@
                     </div>
 
                     <table class="table">
-                        <tr>
-                            <th>Username</th>
+                        <tr style="text-align: left;">
+                            <th>Profile ID</th>
                             <th>Expertise</th>
                             <th>Availability</th>
                             <th>Rates</th>
                             <th>Options</th>
                         </tr>
+                        @foreach ($professionals as $professional)
                         <tr>
-                            <td>{{$f->username}}</td>
-                            <td>{{$f->expertise}}</td>
-                            <td>{{$f->availability}}</td>
-                            <td>{{$f->rates}}</td>
+                            <td>{{$professional->profile_id}}</td>
+                            <td>{{$professional->expertise}}</td>
+                            <td>{{$professional->availability}}</td>
+                            <td>{{$professional->rates}}</td>
                             <td>
                                 <div class="col-lg-4" style="text-align: center;">
-                                    <button class="btn more-info">More Info</button>
-                                    <button class="btn edit">Edit</button>
-                                    <button class="btn delete">Delete</button>
+                                    <a class="btn more-info" href="professionals/{{$professional->professional_id}}">More Info</a>
+                                    <a class="btn edit" href="professionals/{{$professional->professional_id}}/edit">Edit</a>
+                                    <form id="deleteFinal" action="/admin/professionals/{{$professional->professional_id}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="button" onclick="confirmDelete()">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>{{$f->username}}</td>
-                            <td>{{$f->expertise}}</td>
-                            <td>{{$f->availability}}</td>
-                            <td>{{$f->rates}}</td>
-                            <td>
-                                <div class="col-lg-4" style="text-align: center;">
-                                    <button class="btn more-info">More Info</button>
-                                    <button class="btn edit">Edit</button>
-                                    <button class="btn delete">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>{{$f->username}}</td>
-                            <td>{{$f->expertise}}</td>
-                            <td>{{$f->availability}}</td>
-                            <td>{{$f->rates}}</td>
-                            <td>
-                                <div class="col-lg-4" style="text-align: center;">
-                                    <button class="btn more-info">More Info</button>
-                                    <button class="btn edit">Edit</button>
-                                    <button class="btn delete">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
+
+                        <script>
+                            function confirmDelete() {
+                                if (confirm('Are you sure you want to delete this entry?')) {
+                                    document.getElementById('deleteFinal').submit();
+                                }
+                            }
+                        </script>
                        
 
                     </table>
                     <div class="col-lg-4" style="text-align: center;">
-                        
-                        <button class="btn create-new">Create New</button>
-                        
+                        <a class="btn create-new" href="/admin/professionals/create">Create New</a>
                     </div>
                 </div>
-            </div>
-
-            
-        </div>
-    </div>
 
     
 

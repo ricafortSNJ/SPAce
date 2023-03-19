@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2023 at 09:55 PM
+-- Generation Time: Mar 19, 2023 at 09:54 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -741,7 +741,9 @@ INSERT INTO `users` (`user_id`, `email_address`, `password`, `user_type`) VALUES
 (99, 'katarinagarcia@gmail.com', '$2y$10$SFKBOxn0ANjxGHVu2JmnXO5TTRg86.9HBUVSPPFUeAZfEKMs0Bfme', 'customer'),
 (100, 'luisathompson@gmail.com', '$2y$10$SFKBOxn0ANjxGHVu2JmnXO5TTRg86.9HBUVSPPFUeAZfEKMs0Bfme', 'customer'),
 (101, 'adminspace@gmail.com', '$2y$10$LJaW69bAb4VkYnBwNvrg/OSa3BS5a8f0W0zgeAUYKQKH.6ornwJKi', 'admin'),
-(102, 'ace44@gmail.com', '$2y$10$l4VYjGS8xp0.Sr2fqBtDB.wsl/eAgE0l9VAWk7hXNw1up2woBAJy.', 'customer');
+(102, 'ace44@gmail.com', '$2y$10$l4VYjGS8xp0.Sr2fqBtDB.wsl/eAgE0l9VAWk7hXNw1up2woBAJy.', 'customer'),
+(103, 'customer12@gmail.com', '$2y$10$zT9c9h6wrMIs26GZj631hOJDqqbl8g5LkuVBlESODwxuXCgZtj74S', 'customer'),
+(104, 'ace45@gmail.com', '$2y$10$0QWu.GSWVklhZQ2J07QaxOv8Pxoj/Q/T6v5AZPTsVg8dSlDMj/biC', 'customer');
 
 -- --------------------------------------------------------
 
@@ -859,7 +861,9 @@ INSERT INTO `user_images` (`image_id`, `user_id`, `image`) VALUES
 (97, 97, '1'),
 (98, 98, '1'),
 (99, 99, '1'),
-(100, 100, '1');
+(100, 100, '1'),
+(101, 1, '20230319073200000057t6gy7huy78jikko.png'),
+(102, 1, '202303190743000000T6Y7U8IJ9KOLP.png');
 
 --
 -- Indexes for dumped tables
@@ -987,7 +991,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `professionals`
 --
 ALTER TABLE `professionals`
-  MODIFY `professional_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `professional_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `profiles`
@@ -1005,13 +1009,13 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `user_images`
 --
 ALTER TABLE `user_images`
-  MODIFY `image_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `image_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

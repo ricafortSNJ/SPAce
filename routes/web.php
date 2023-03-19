@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfessionalsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfilesController;
@@ -47,6 +48,7 @@ Route::post('/test1_dashboard', [DashboardController::class, 'searchFunction']);
 Route::get('/test1_profile', [DashboardController::class, 'showProfile']);
 Route::get('/test1_profile/edit', [DashboardController::class, 'editProfile']);
 Route::post('/test1_profile/edit', [DashboardController::class, 'updateProfile']);
+Route::post('/test1_profile/upload', [DashboardController::class, 'upload']);
 
 Route::get('/test1_messages', [DashboardController::class, 'showMessages']);
 Route::get('/test1_reviews', [DashboardController::class, 'showReviews']);
@@ -93,6 +95,12 @@ Route::get('/test2_payments', [DashboardController::class, 'paymentHistory_p']);
 
 Route::resource('/admin/profiles', ProfilesController::class);
 Route::post('/admin/profiles/{profile_id}', [ProfilesController::class, 'update']);
+
+Route::resource('/admin/professionals', ProfessionalsController::class);
+Route::post('/admin/professionals/{professional_id}', [ProfessionalsController::class, 'update']);
+
+Route::resource('/admin/bookings', BookingsController::class);
+Route::post('/admin/bookings/{booking_id}', [BookingsController::class, 'update']);
 
 
 

@@ -19,7 +19,7 @@
                     </div>
 
                     <table class="table">
-                        <tr>
+                        <tr style="text-align: left;">
                             <th>Username</th>
                             <th>First name</th>
                             <th>Last name</th>
@@ -42,11 +42,23 @@
                                 <div class="col-lg-4" style="text-align: center;">
                                     <a class="btn more-info" href="profiles/{{$profile->profile_id}}">More Info</a>
                                     <a class="btn edit" href="profiles/{{$profile->profile_id}}/edit">Edit</a>
-                                    <a class="btn delete">Delete</a>
+                                    <form id="deleteFinal" action="/admin/profiles/{{$profile->profile_id}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="button" onclick="confirmDelete()">Delete</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
                         @endforeach
+
+                        <script>
+                            function confirmDelete() {
+                                if (confirm('Are you sure you want to delete this entry?')) {
+                                    document.getElementById('deleteFinal').submit();
+                                }
+                            }
+                        </script>
                        
 
                     </table>
@@ -54,12 +66,6 @@
                         <a class="btn create-new" href="/admin/profiles/create">Create New</a>
                     </div>
                 </div>
-            </div>
-
-            
-        </div>
-    </div>
-
     
 
     @include("layouts/04_end")

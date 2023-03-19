@@ -8,6 +8,16 @@
 @include("layouts/00_nav")
     
     <h1>Profile Page</h1>
+    @foreach ($user as $u)
+    <img src="image_uploads/{{$u->image}}"/>
+    @endforeach
+    <form action="/test1_profile/upload" method="POST" enctype="multipart/form-data">
+        @csrf
+        <label>Upload photo:</label>
+        <input type="file" name="image"></input><br>
+        <button type="submit">Submit</button>
+    </form>
+
     @if (count($user) > 0)
         @foreach ($user as $u)
         <h1>Welcome! {{$u->first_name}} {{$u->last_name}}</h1>

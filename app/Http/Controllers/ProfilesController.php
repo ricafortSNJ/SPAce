@@ -17,7 +17,7 @@ class ProfilesController extends Controller
     {
         //
         if (Session::get('user_type') == 'admin') {
-            $profiles = DB::select("SELECT * FROM profiles LIMIT 15");
+            $profiles = DB::select("SELECT * FROM profiles ORDER BY profile_id DESC LIMIT 10;");
             return view('/04_profiles', compact('profiles'));
         } else {
             return view('/');
