@@ -61,7 +61,7 @@ class DashboardController extends Controller
                 if (Session::get('user_type') == 'admin') {
                     return redirect('/admin/profiles');
                 } else if (Session::get('user_type') == 'customer') {
-                    return redirect('test1_profile');
+                    return redirect('/02_profile');
                 } else if (Session::get('user_type') == 'professional') {
                     return redirect('test2_profile');
                 }
@@ -81,6 +81,7 @@ class DashboardController extends Controller
             Session::pull('email_address');
             Session::pull('user_type');
             Session::pull('username');
+            Session::pull('image');
         }
         if (Session::has('professional_id')) {
             Session::pull('professional_id');
@@ -157,8 +158,9 @@ class DashboardController extends Controller
         if (!empty($user)) {
             $firstUser = $user[0];
             session()->put('username', $firstUser->username);
+            session()->put('image', $firstUser->image);
         }
-        return view('test1_profile', compact('user'));
+        return view('/02_profile', compact('user'));
     }
 
     // Show Profile Edit Page
@@ -167,7 +169,7 @@ class DashboardController extends Controller
         $user_id = Session::get("user_id");
         $user = DB::select("SELECT us.user_id, email_address, username, first_name, last_name, mobile_number, social_media, location FROM users AS us
         INNER JOIN profiles AS p ON us.user_id = p.user_id WHERE us.user_id = " . $user_id);
-        return view('test1_profile-edit', compact('user'));
+        return view('02_profile-edit', compact('user'));
     }
 
     // Update DB - redirect to Profile page
@@ -188,7 +190,7 @@ class DashboardController extends Controller
             'location' => $request->input('location'),
         ]);
 
-        return redirect('test1_profile');
+        return redirect('02_profile');
     }
 
 
@@ -202,11 +204,11 @@ class DashboardController extends Controller
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location, region, lat, lng FROM professionals AS pr1
             INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id
             INNER JOIN locations as l ON l.location = pr2.location WHERE region = " . $location);
-            return view('test1_dashboard', compact('expertise', 'rate', 'location', 'results'));
+            return view('02_dashboard', compact('expertise', 'rate', 'location', 'results'));
         } else {
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location FROM professionals AS pr1
             INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id LIMIT 5");
-            return view('test1_dashboard', compact('expertise', 'rate', 'location', 'results'));
+            return view('02_dashboard', compact('expertise', 'rate', 'location', 'results'));
         }
     }
     
@@ -222,7 +224,7 @@ class DashboardController extends Controller
         INNER JOIN profiles AS p ON us.user_id = p.user_id 
         INNER JOIN reviews AS r ON us.user_id = reviewer_id
         WHERE reviewee_id = " . $user_id);
-        return view('test1_reviews', compact('user_reviews', 'professional_reviews'));
+        return view('02_reviews', compact('user_reviews', 'professional_reviews'));
     }
 
     // Show Messages
@@ -236,7 +238,7 @@ class DashboardController extends Controller
         INNER JOIN profiles AS p ON p.user_id = m.sender_id
         WHERE receiver_id = " . $user_id);
         
-        return view('test1_messages', compact('messages_received', 'messages_sent'));
+        return view('02_messages', compact('messages_received', 'messages_sent'));
     }
 
     // Show Bookings
@@ -247,7 +249,7 @@ class DashboardController extends Controller
         INNER JOIN professionals as p ON b.professional_id = p.professional_id
         INNER JOIN profiles as p1 ON p1.profile_id = p.profile_id
         WHERE b.user_id = " . $user_id);
-        return view('test1_bookings', compact('user_bookings'));
+        return view('02_bookings', compact('user_bookings'));
     }
 
     // Book Appointment
@@ -267,7 +269,7 @@ class DashboardController extends Controller
         INNER JOIN profiles as p1 ON p1.profile_id = p.profile_id
         WHERE b.user_id = " . $user_id);
 
-        return view('test1_bookings', compact('user_bookings'));
+        return view('02_bookings', compact('user_bookings'));
     }
 
     // Show Payments
@@ -279,7 +281,7 @@ class DashboardController extends Controller
         INNER JOIN professionals as p2 ON p2.professional_id = b.professional_id
         INNER JOIN profiles as p3 ON p3.profile_id = p2.profile_id
         WHERE b.user_id = " . $user_id);
-        return view('test1_payments', compact('user_payments'));
+        return view('02_payments', compact('user_payments'));
     }
 
     // Edit Booking Status (to be edited)
@@ -320,7 +322,7 @@ class DashboardController extends Controller
             $sp->image = $filename;
         }
         $sp->save();
-        return redirect("/test1_profile");
+        return redirect("/02_profile");
     }
     public function showUpload($id) // To be Modified
     {
@@ -392,7 +394,7 @@ class DashboardController extends Controller
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location, region, lat, lng FROM professionals AS pr1
             INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id
             INNER JOIN locations as l ON l.location = pr2.location WHERE region = " . $location);
-            return view('test1_dashboard', compact('expertise', 'rate', 'location', 'results'));
+            return view('02_dashboard', compact('expertise', 'rate', 'location', 'results'));
         } else {
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location FROM professionals AS pr1
             INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id LIMIT 5");

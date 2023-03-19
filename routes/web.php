@@ -41,6 +41,21 @@ Route::post('/appointment', [DashboardController::class, 'appointment']);
 |--------------------------------------------------------------------------
 */
 
+Route::get('/02_dashboard', [DashboardController::class, 'searchFunction']);
+Route::post('/02_dashboard', [DashboardController::class, 'searchFunction']);
+
+Route::get('/02_profile', [DashboardController::class, 'showProfile']);
+Route::get('/02_profile/edit', [DashboardController::class, 'editProfile']);
+Route::post('/02_profile/edit', [DashboardController::class, 'updateProfile']);
+Route::post('/02_profile/upload', [DashboardController::class, 'upload']);
+
+Route::get('/02_messages', [DashboardController::class, 'showMessages']);
+Route::get('/02_reviews', [DashboardController::class, 'showReviews']);
+Route::get('/02_bookings', [DashboardController::class, 'bookingHistory']);
+Route::post('/02_bookings', [DashboardController::class, 'addBooking']);
+Route::get('/02_payments', [DashboardController::class, 'paymentHistory']);
+
+// Test-Routes
 
 Route::get('/test1_dashboard', [DashboardController::class, 'searchFunction']);
 Route::post('/test1_dashboard', [DashboardController::class, 'searchFunction']);
@@ -60,16 +75,24 @@ Route::get('/test1_payments', [DashboardController::class, 'paymentHistory']);
 //Route::post('/test1_payments/edit/{payment_id}', [DashboardController::class, 'updateBooking']);
 
 
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | PROFESSIONAL-DASHBOARD Routes
 |--------------------------------------------------------------------------
 */
+
+Route::get('/03_bookings/edit/{booking_id}', [DashboardController::class, 'editBooking']);
+Route::post('/03_bookings/edit/{booking_id}', [DashboardController::class, 'updateBooking']);
+
+Route::get('/03_profile', [DashboardController::class, 'showProfile_p']);
+Route::get('/03_profile/edit', [DashboardController::class, 'editProfile_p']);
+Route::post('/03_profile/edit', [DashboardController::class, 'updateProfile_p']);
+
+Route::get('/03_messages', [DashboardController::class, 'showMessages_p']);
+Route::get('/03_reviews', [DashboardController::class, 'showReviews_p']);
+Route::get('/03_bookings', [DashboardController::class, 'bookingHistory_p']);
+Route::post('/03_bookings', [DashboardController::class, 'addBooking_p']);
+Route::get('/03_payments', [DashboardController::class, 'paymentHistory_p']);
 
 //Route::get('/test2_dashboard', [DashboardController::class, 'searchFunction_p']);
 //Route::post('/test2_dashboard', [DashboardController::class, 'addBooking_p']);
