@@ -11,11 +11,11 @@
 
   <div class="w3-bar w3-border-bottom" id="bg">
    <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Signup')" >Signup</button>
-   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Register')">Register</button>
+   <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Login')">Login</button>
    
   </div>
 
-  <div id="Signup" class="w3-container sign" id="bg">
+  <div id="Signup" class="w3-container city" id="bg">
   
    <form class="w3-container" action="/test_register" method="POST">
         @csrf
@@ -24,13 +24,13 @@
       <input class="w3-input w3-border w3-margin-bottom" type="email" placeholder="Enter Email" name="email_address" required>
       <label><b>Password</b></label>
       <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="password" required>
-      <button class="w3-button w3-block  w3-section w3-padding" type="submit" style="background-color: #2d4b5a;">Sign Up</button>
+      <button class="w3-button w3-block  w3-section w3-padding" type="submit" style="background-color: #2d4b5a; color: white;">Sign Up</button>
       <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
     </div>
   </form>
   </div>
 
-  <div id="Register" class="w3-container city">
+  <div id="Login" class="w3-container city">
     <form class="w3-container" action="/test_login" method="POST">
         @csrf
         <div class="w3-section">
@@ -38,9 +38,7 @@
       <input class="w3-input w3-border w3-margin-bottom" type="email" placeholder="Enter Email" name="email_address" required>
       <label><b>Password</b></label>
       <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="password" required>
-      <label><b>Password</b></label>
-      <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="password" required>
-          <button class="w3-button w3-block  w3-section w3-padding" type="submit" >Login</button>
+          <button class="w3-button w3-block  w3-section w3-padding" type="submit" style="background-color: #2d4b5a; color: white;" >Login</button>
           <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
         </div>
       </form>

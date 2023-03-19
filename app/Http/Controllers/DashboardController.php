@@ -44,7 +44,7 @@ class DashboardController extends Controller
         $user->user_type = "customer";
         $user->save();
 
-        return redirect('test_login');
+        return redirect('/');
     }
     
     // Login - redirect to Profile page
@@ -58,7 +58,7 @@ class DashboardController extends Controller
                 $request->session()->put('user_type', $user->user_type);
                 // Redirect to ADMIN Dashboard if Admin account
                 if (Session::get('user_type') == 'admin') {
-                    return "ADMIN";
+                    return redirect('/admin/profiles');
                 } else if (Session::get('user_type') == 'customer') {
                     return redirect('test1_profile');
                 } else if (Session::get('user_type') == 'professional') {

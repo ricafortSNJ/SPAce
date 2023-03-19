@@ -1,17 +1,17 @@
+<!-- =============== Navigation ================ -->
 <div class="container">
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="/">
                         <span class="icon">
-                            <img src="assets/imgs/sitename.png" alt="sitename"/>
+                            <img src="/4_assets/imgs/sitename.png" alt="sitename"/>
                         </span>
-                      
                     </a>
                 </li>
 
                 <li>
-                    <a href="/ad_index">
+                    <a href="/admin/index">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -20,7 +20,7 @@
                 </li>
 
                 <li>
-                    <a href="/ad_users">
+                    <a href="/admin/users">
                         <span class="icon">
                             <ion-icon name="person-add-outline"></ion-icon>
                         </span>
@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="/ad_profiles">
+                    <a href="/admin/profiles">
                         <span class="icon">
                             <ion-icon name="person-outline"></ion-icon>
                         </span>
@@ -38,7 +38,7 @@
                 </li>
 
                 <li>
-                    <a href="/ad_professionals">
+                    <a href="/admin/professionals">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -47,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="/ad_reviews">
+                    <a href="/admin/reviews">
                         <span class="icon">
                             <ion-icon name="star-half-outline"></ion-icon>
                         </span>
@@ -56,7 +56,7 @@
                 </li>
 
                 <li>
-                    <a href="/ad_bookings">
+                    <a href="/admin/bookings">
                         <span class="icon">
                             <ion-icon name="book-outline"></ion-icon>
                         </span>
@@ -65,7 +65,7 @@
                 </li>
 
                 <li>
-                    <a href="ad_messaging">
+                    <a href="/04_messages">
                         <span class="icon">
                             <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
                         </span>
@@ -73,7 +73,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/logout">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -82,3 +82,22 @@
                 </li>
             </ul>
         </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <img src="/4_assets/imgs/adminprofile.jpg" alt="">
+                </div>
+            </div>

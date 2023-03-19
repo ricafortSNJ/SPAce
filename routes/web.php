@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -57,6 +58,17 @@ Route::get('/test1_payments', [DashboardController::class, 'paymentHistory']);
 //Route::post('/test1_payments/edit/{payment_id}', [DashboardController::class, 'updateBooking']);
 
 
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| PROFESSIONAL-DASHBOARD Routes
+|--------------------------------------------------------------------------
+*/
+
 //Route::get('/test2_dashboard', [DashboardController::class, 'searchFunction_p']);
 //Route::post('/test2_dashboard', [DashboardController::class, 'addBooking_p']);
 
@@ -73,20 +85,19 @@ Route::get('/test2_bookings', [DashboardController::class, 'bookingHistory_p']);
 Route::post('/test2_bookings', [DashboardController::class, 'addBooking_p']);
 Route::get('/test2_payments', [DashboardController::class, 'paymentHistory_p']);
 
-
-
-
-/*
-|--------------------------------------------------------------------------
-| PROFESSIONAL-DASHBOARD Routes
-|--------------------------------------------------------------------------
-*/
-
 /*
 |--------------------------------------------------------------------------
 | ADMIN-DASHBOARD Routes
 |--------------------------------------------------------------------------
 */
+
+Route::resource('/admin/profiles', ProfilesController::class);
+Route::post('/admin/profiles/{profile_id}', [ProfilesController::class, 'update']);
+
+
+
+
+
 
 /*
 
