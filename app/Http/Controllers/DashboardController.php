@@ -203,7 +203,7 @@ class DashboardController extends Controller
         if ($expertise) {
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location, region, lat, lng FROM professionals AS pr1
             INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id
-            INNER JOIN locations as l ON l.location = pr2.location WHERE region = " . $location);
+            INNER JOIN locations as l ON l.location = pr2.location WHERE region = " . $location . "LIMIT 5");
             return view('02_dashboard', compact('expertise', 'rate', 'location', 'results'));
         } else {
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location FROM professionals AS pr1
