@@ -33,7 +33,7 @@
                         <span class="icon">
                             <ion-icon name="chatbubble-outline"></ion-icon>
                         </span>
-                        <span class="title">Booking</span>
+                        <span class="title">Bookings</span>
                     </a>
                 </li>
 

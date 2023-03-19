@@ -15,8 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $appointment_id
  * @property string $name
  * @property string $email_address
- * @property Carbon $request_date
- * @property Carbon $request_time
+ * @property string $request_date
+ * @property string $request_time
  * @property string $service
  * @property Carbon $date
  * @property Carbon $time
@@ -30,8 +30,6 @@ class Appointment extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'request_date' => 'date',
-		'request_time' => 'date',
 		'date' => 'date',
 		'time' => 'date'
 	];

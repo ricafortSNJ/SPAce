@@ -16,9 +16,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $booking_id
  * @property int $user_id
  * @property int $amount
- * @property Carbon|null $date
- * @property Carbon|null $time
- * @property bool $status
+ * @property Carbon $date
+ * @property Carbon $time
+ * @property string $owner
+ * @property string $cvv
+ * @property string $month_exp
+ * @property string $year_exp
  *
  * @package App\Models
  */
@@ -33,8 +36,7 @@ class Payment extends Model
 		'user_id' => 'int',
 		'amount' => 'int',
 		'date' => 'date',
-		'time' => 'date',
-		'status' => 'bool'
+		'time' => 'date'
 	];
 
 	protected $fillable = [
@@ -43,6 +45,9 @@ class Payment extends Model
 		'amount',
 		'date',
 		'time',
-		'status'
+		'owner',
+		'cvv',
+		'month_exp',
+		'year_exp'
 	];
 }

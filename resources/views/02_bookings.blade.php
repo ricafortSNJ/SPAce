@@ -47,8 +47,8 @@
                   <p>BookingID: <span>2023-123-{{$ub->booking_id}}</span></p>
                   <p>Address: <span>{{$ub->location}}</span></p>
                   <div class="time-sched"><p>Schedule: <span>{{$ub->date}} {{$ub->time}}</span></p></div>
-
                   <div class="services-wrapper"><p>Expertise: {{$ub->expertise}}</p></div>
+                  <div class="services-wrapper"><p>Price: ₱{{$ub->rates}}</p></div>
 
 
                 </div>
@@ -62,6 +62,7 @@
                 @elseif ($ub->status =='Approved')
                 <div class="buttons">
                   <div class="buttons">
+                    <a class="btn btn-danger" href="/02_pay/{{$ub->booking_id}}">{{$ub->status}}</a>
                     <button class="accept">Pay</button>
                   </div>
                 </div>

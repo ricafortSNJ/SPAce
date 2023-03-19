@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 07:03 PM
+-- Generation Time: Mar 19, 2023 at 09:06 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -318,50 +318,25 @@ CREATE TABLE `payments` (
   `booking_id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
   `amount` int(10) NOT NULL,
-  `date` date DEFAULT NULL,
-  `time` time DEFAULT NULL,
-  `status` tinyint(1) NOT NULL
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `owner` varchar(50) NOT NULL,
+  `cvv` varchar(10) NOT NULL,
+  `month_exp` varchar(10) NOT NULL,
+  `year_exp` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payments`
 --
 
-INSERT INTO `payments` (`payment_id`, `booking_id`, `user_id`, `amount`, `date`, `time`, `status`) VALUES
-(1, 1, 1, 1000, '2023-03-01', '08:30:00', 1),
-(2, 2, 1, 600, '2023-03-02', '09:30:00', 1),
-(3, 3, 1, 450, '2023-03-03', '10:30:00', 1),
-(4, 4, 1, 800, '2023-03-04', '11:30:00', 1),
-(5, 5, 1, 500, '2023-03-05', '12:30:00', 1),
-(6, 6, 1, 1000, '2023-03-06', '13:30:00', 1),
-(7, 7, 1, 600, '2023-03-07', '14:30:00', 1),
-(8, 8, 1, 450, '2023-03-08', '08:15:00', 1),
-(9, 9, 1, 800, '2023-03-09', '09:15:00', 1),
-(10, 10, 76, 500, '2023-03-10', '10:15:00', 1),
-(11, 11, 77, 1000, '2023-03-11', '11:15:00', 1),
-(12, 12, 78, 600, '2023-03-12', '12:15:00', 1),
-(13, 13, 79, 450, '2023-03-13', '13:15:00', 1),
-(14, 14, 80, 800, '2023-03-14', '09:25:00', 1),
-(15, 15, 81, 500, '2023-03-15', '10:25:00', 1),
-(16, 16, 82, 1000, '2023-03-16', '11:25:00', 1),
-(17, 17, 83, 600, '2023-03-17', '12:25:00', 1),
-(18, 18, 84, 450, '2023-03-01', '13:25:00', 1),
-(19, 19, 85, 800, '2023-03-02', '14:25:00', 1),
-(20, 20, 86, 500, '2023-03-03', '15:25:00', 1),
-(21, 21, 87, 1000, '2023-03-04', '07:00:00', 1),
-(22, 22, 88, 600, '2023-03-05', '08:00:00', 1),
-(23, 23, 89, 450, '2023-03-06', '09:00:00', 1),
-(24, 24, 90, 800, '2023-03-07', '10:00:00', 1),
-(25, 25, 91, 500, '2023-03-08', '11:00:00', 1),
-(26, 26, 92, 1000, '2023-03-09', '12:00:00', 1),
-(27, 27, 93, 600, '2023-03-10', '09:30:00', 1),
-(28, 28, 94, 450, '2023-03-11', '10:30:00', 1),
-(29, 29, 95, 800, '2023-03-12', '11:30:00', 1),
-(30, 30, 96, 500, '2023-03-13', '12:30:00', 1),
-(31, 31, 97, 1000, '2023-03-14', '13:30:00', 1),
-(32, 32, 98, 600, '2023-03-15', '14:30:00', 1),
-(33, 33, 99, 450, '2023-03-16', '15:30:00', 1),
-(34, 34, 100, 800, '2023-03-17', '09:00:00', 1);
+INSERT INTO `payments` (`payment_id`, `booking_id`, `user_id`, `amount`, `date`, `time`, `owner`, `cvv`, `month_exp`, `year_exp`) VALUES
+(1, 9, 1, 800, '2023-03-20', '03:38:45', 'Cha', '3333', '08', '25'),
+(2, 9, 1, 800, '2023-03-20', '03:41:31', 'Cha', '3333', '08', '26'),
+(3, 9, 1, 800, '2023-03-20', '03:46:11', 'Cha', '3333', '01', '23'),
+(4, 9, 1, 800, '2023-03-20', '03:52:22', 'Cha', '333', '01', '23'),
+(5, 9, 1, 800, '2023-03-20', '03:59:51', 'Cha', '333', '09', '26'),
+(6, 9, 1, 800, '2023-03-20', '04:03:57', 'Cha', '333', '01', '23');
 
 -- --------------------------------------------------------
 
@@ -382,80 +357,80 @@ CREATE TABLE `professionals` (
 --
 
 INSERT INTO `professionals` (`professional_id`, `profile_id`, `expertise`, `availability`, `rates`) VALUES
-(1, 2, 'Acupuncturist', '8:00-18:00', 1000),
-(2, 3, 'Aromatherapist', '8:00-18:00', 600),
-(3, 4, 'Chiropractor', '8:00-18:00', 450),
-(4, 5, 'Massage Therapist', '8:00-18:00', 800),
-(5, 6, 'Fitness Instructor', '8:00-18:00', 500),
-(6, 7, 'Hairstylist', '8:00-18:00', 210),
-(7, 8, 'Makeup Artist', '8:00-18:00', 2920),
-(8, 9, 'Massage Therapist', '8:00-18:00', 1810),
-(9, 10, 'Meditation Coach', '8:00-18:00', 270),
-(10, 11, 'Nail Technician', '8:00-18:00', 1180),
-(11, 12, 'Nutritionist', '8:00-18:00', 2490),
-(12, 13, 'Personal Trainer', '8:00-18:00', 2160),
-(13, 14, 'Pilates Instructor', '8:00-18:00', 210),
-(14, 15, 'Reflexologist', '8:00-18:00', 2810),
-(15, 16, 'Reiki Practitioner', '8:00-18:00', 2020),
-(16, 17, 'Sound Therapist', '8:00-18:00', 2540),
-(17, 18, 'Spa Consultant', '8:00-18:00', 670),
-(18, 19, 'Tai Chi Instructor', '8:00-18:00', 2980),
-(19, 20, 'Yoga Instructor', '8:00-18:00', 2120),
-(20, 21, 'Acupuncturist', '8:00-18:00', 1130),
-(21, 22, 'Aromatherapist', '8:00-18:00', 960),
-(22, 23, 'Chiropractor', '8:00-18:00', 1870),
-(23, 24, 'Esthetician', '8:00-18:00', 1750),
-(24, 25, 'Fitness Instructor', '8:00-18:00', 1200),
-(25, 26, 'Hairstylist', '8:00-18:00', 2890),
-(26, 27, 'Makeup Artist', '8:00-18:00', 1790),
-(27, 28, 'Massage Therapist', '8:00-18:00', 1300),
-(28, 29, 'Meditation Coach', '8:00-18:00', 1630),
-(29, 30, 'Nail Technician', '8:00-18:00', 1030),
-(30, 31, 'Nutritionist', '8:00-18:00', 2950),
-(31, 32, 'Personal Trainer', '8:00-18:00', 770),
-(32, 33, 'Pilates Instructor', '8:00-18:00', 1130),
-(33, 34, 'Reflexologist', '8:00-18:00', 460),
-(34, 35, 'Reiki Practitioner', '8:00-18:00', 1570),
-(35, 36, 'Sound Therapist', '8:00-18:00', 410),
-(36, 37, 'Spa Consultant', '8:00-18:00', 1960),
-(37, 38, 'Tai Chi Instructor', '8:00-18:00', 2900),
-(38, 39, 'Yoga Instructor', '8:00-18:00', 630),
-(39, 40, 'Acupuncturist', '8:00-18:00', 2640),
-(40, 41, 'Aromatherapist', '8:00-18:00', 780),
-(41, 42, 'Chiropractor', '8:00-18:00', 2880),
-(42, 43, 'Esthetician', '8:00-18:00', 1060),
-(43, 44, 'Fitness Instructor', '8:00-18:00', 2600),
-(44, 45, 'Hairstylist', '8:00-18:00', 2120),
-(45, 46, 'Makeup Artist', '8:00-18:00', 1240),
-(46, 47, 'Massage Therapist', '8:00-18:00', 2470),
-(47, 48, 'Meditation Coach', '8:00-18:00', 2700),
-(48, 49, 'Nail Technician', '8:00-18:00', 690),
-(49, 50, 'Nutritionist', '8:00-18:00', 1120),
-(50, 51, 'Personal Trainer', '8:00-18:00', 1830),
-(51, 52, 'Pilates Instructor', '8:00-18:00', 1900),
-(52, 53, 'Reflexologist', '8:00-18:00', 1410),
-(53, 54, 'Reiki Practitioner', '8:00-18:00', 1600),
-(54, 55, 'Sound Therapist', '8:00-18:00', 2090),
-(55, 56, 'Spa Consultant', '8:00-18:00', 1030),
-(56, 57, 'Tai Chi Instructor', '8:00-18:00', 1860),
-(57, 58, 'Yoga Instructor', '8:00-18:00', 1370),
-(58, 59, 'Acupuncturist', '8:00-18:00', 540),
-(59, 60, 'Aromatherapist', '8:00-18:00', 510),
-(60, 61, 'Chiropractor', '8:00-18:00', 650),
-(61, 62, 'Esthetician', '8:00-18:00', 2290),
-(62, 63, 'Fitness Instructor', '8:00-18:00', 2730),
-(63, 64, 'Hairstylist', '8:00-18:00', 1470),
-(64, 65, 'Makeup Artist', '8:00-18:00', 2550),
-(65, 66, 'Massage Therapist', '8:00-18:00', 2620),
-(66, 67, 'Meditation Coach', '8:00-18:00', 2470),
-(67, 68, 'Nail Technician', '8:00-18:00', 1420),
-(68, 69, 'Nutritionist', '8:00-18:00', 2740),
-(69, 70, 'Personal Trainer', '8:00-18:00', 770),
-(70, 71, 'Pilates Instructor', '8:00-18:00', 2070),
-(71, 72, 'Reflexologist', '8:00-18:00', 2030),
-(72, 73, 'Reiki Practitioner', '8:00-18:00', 1750),
-(73, 74, 'Sound Therapist', '8:00-18:00', 2540),
-(74, 75, 'Spa Consultant', '8:00-18:00', 1250);
+(1, 2, 'Massage Therapist', '8:00-18:00', 1000),
+(2, 3, 'Acupuncturist', '8:00-18:00', 600),
+(3, 4, 'Massage Therapist', '8:00-18:00', 450),
+(4, 5, 'Chiropractor', '8:00-18:00', 800),
+(5, 6, 'Nail Technician', '8:00-18:00', 500),
+(6, 7, 'Massage Therapist', '8:00-18:00', 2620),
+(7, 8, 'Acupuncturist', '8:00-18:00', 2240),
+(8, 9, 'Aromatherapist', '8:00-18:00', 1340),
+(9, 10, 'Chiropractor', '8:00-18:00', 470),
+(10, 11, 'Nail Technician', '8:00-18:00', 830),
+(11, 12, 'Massage Therapist', '8:00-18:00', 1680),
+(12, 13, 'Acupuncturist', '8:00-18:00', 1330),
+(13, 14, 'Aromatherapist', '8:00-18:00', 1100),
+(14, 15, 'Chiropractor', '8:00-18:00', 1770),
+(15, 16, 'Nail Technician', '8:00-18:00', 730),
+(16, 17, 'Massage Therapist', '8:00-18:00', 1120),
+(17, 18, 'Acupuncturist', '8:00-18:00', 230),
+(18, 19, 'Aromatherapist', '8:00-18:00', 280),
+(19, 20, 'Chiropractor', '8:00-18:00', 430),
+(20, 21, 'Nail Technician', '8:00-18:00', 1800),
+(21, 22, 'Massage Therapist', '8:00-18:00', 2950),
+(22, 23, 'Acupuncturist', '8:00-18:00', 2600),
+(23, 24, 'Aromatherapist', '8:00-18:00', 2060),
+(24, 25, 'Chiropractor', '8:00-18:00', 2630),
+(25, 26, 'Nail Technician', '8:00-18:00', 710),
+(26, 27, 'Massage Therapist', '8:00-18:00', 2470),
+(27, 28, 'Acupuncturist', '8:00-18:00', 630),
+(28, 29, 'Aromatherapist', '8:00-18:00', 2350),
+(29, 30, 'Chiropractor', '8:00-18:00', 230),
+(30, 31, 'Nail Technician', '8:00-18:00', 2790),
+(31, 32, 'Massage Therapist', '8:00-18:00', 950),
+(32, 33, 'Acupuncturist', '8:00-18:00', 2080),
+(33, 34, 'Aromatherapist', '8:00-18:00', 1430),
+(34, 35, 'Chiropractor', '8:00-18:00', 260),
+(35, 36, 'Nail Technician', '8:00-18:00', 2280),
+(36, 37, 'Massage Therapist', '8:00-18:00', 220),
+(37, 38, 'Acupuncturist', '8:00-18:00', 2120),
+(38, 39, 'Aromatherapist', '8:00-18:00', 2690),
+(39, 40, 'Chiropractor', '8:00-18:00', 2430),
+(40, 41, 'Nail Technician', '8:00-18:00', 2280),
+(41, 42, 'Massage Therapist', '8:00-18:00', 380),
+(42, 43, 'Acupuncturist', '8:00-18:00', 1250),
+(43, 44, 'Aromatherapist', '8:00-18:00', 1320),
+(44, 45, 'Chiropractor', '8:00-18:00', 2630),
+(45, 46, 'Nail Technician', '8:00-18:00', 1590),
+(46, 47, 'Massage Therapist', '8:00-18:00', 1220),
+(47, 48, 'Acupuncturist', '8:00-18:00', 1310),
+(48, 49, 'Aromatherapist', '8:00-18:00', 1890),
+(49, 50, 'Chiropractor', '8:00-18:00', 2650),
+(50, 51, 'Nail Technician', '8:00-18:00', 880),
+(51, 52, 'Massage Therapist', '8:00-18:00', 490),
+(52, 53, 'Acupuncturist', '8:00-18:00', 2190),
+(53, 54, 'Aromatherapist', '8:00-18:00', 830),
+(54, 55, 'Chiropractor', '8:00-18:00', 1520),
+(55, 56, 'Nail Technician', '8:00-18:00', 410),
+(56, 57, 'Massage Therapist', '8:00-18:00', 2110),
+(57, 58, 'Acupuncturist', '8:00-18:00', 510),
+(58, 59, 'Aromatherapist', '8:00-18:00', 2770),
+(59, 60, 'Chiropractor', '8:00-18:00', 2940),
+(60, 61, 'Nail Technician', '8:00-18:00', 2080),
+(61, 62, 'Massage Therapist', '8:00-18:00', 850),
+(62, 63, 'Acupuncturist', '8:00-18:00', 2560),
+(63, 64, 'Aromatherapist', '8:00-18:00', 1490),
+(64, 65, 'Chiropractor', '8:00-18:00', 2050),
+(65, 66, 'Nail Technician', '8:00-18:00', 1510),
+(66, 67, 'Massage Therapist', '8:00-18:00', 2480),
+(67, 68, 'Acupuncturist', '8:00-18:00', 350),
+(68, 69, 'Aromatherapist', '8:00-18:00', 2110),
+(69, 70, 'Chiropractor', '8:00-18:00', 470),
+(70, 71, 'Nail Technician', '8:00-18:00', 1310),
+(71, 72, 'Massage Therapist', '8:00-18:00', 2130),
+(72, 73, 'Acupuncturist', '8:00-18:00', 2890),
+(73, 74, 'Aromatherapist', '8:00-18:00', 2580),
+(74, 75, 'Chiropractor', '8:00-18:00', 440);
 
 -- --------------------------------------------------------
 
@@ -986,7 +961,7 @@ ALTER TABLE `newsletters`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `professionals`
@@ -998,7 +973,7 @@ ALTER TABLE `professionals`
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `profile_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `profile_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `reviews`

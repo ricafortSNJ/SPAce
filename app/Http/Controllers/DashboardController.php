@@ -12,6 +12,7 @@ use App\Models\Message;
 use App\Models\Review;
 use App\Models\Newsletter;
 use App\Models\Inquiry;
+use App\Models\Payment;
 use App\Models\Appointment;
 use App\Models\UserImage;
 use Illuminate\Support\Facades\Hash;
@@ -245,7 +246,7 @@ class DashboardController extends Controller
     public function bookingHistory()
     {
         $user_id = Session::get("user_id");
-        $user_bookings = DB::select("SELECT booking_id, b.user_id, b.professional_id, username, date, time, status, location, mobile_number, availability, expertise FROM bookings as b
+        $user_bookings = DB::select("SELECT booking_id, b.user_id, b.professional_id, username, date, time, status, location, mobile_number, availability, expertise, rates FROM bookings as b
         INNER JOIN professionals as p ON b.professional_id = p.professional_id
         INNER JOIN profiles as p1 ON p1.profile_id = p.profile_id
         WHERE b.user_id = " . $user_id . " ORDER BY date DESC");
@@ -284,16 +285,17 @@ class DashboardController extends Controller
         return view('02_payments', compact('user_payments'));
     }
 
-    // Edit Booking Status (to be edited)
+    // Edit Payment Status (to be edited)
     public function editPayment($booking_id)
     {
         $user_id = Session::get("user_id");
-        $booking = DB::select("SELECT booking_id, user_id, professional_id, date, time, status FROM bookings
+        $booking = DB::select("SELECT booking_id, user_id, b.professional_id, date, time, status, rates FROM bookings AS b
+        INNER JOIN professionals AS p ON p.professional_id = b.professional_id
         WHERE booking_id =" . $booking_id);
-        return view('03_bookings-edit', compact('booking'));
+        return view('02_pay', compact('booking'));
     }
 
-    // Update Booking Status (to be edited)
+    // Update Payment Status (to be edited)
     public function updatePayment($booking_id, Request $request)
     {
         $user_id = Session::get("user_id");
@@ -301,8 +303,27 @@ class DashboardController extends Controller
         ->update([
             'status' => $request->input('status'),
         ]);
+        // $booking = Booking::find($booking_id);
+        // if ($booking) {
+        //     $booking->status = 'Paid';
+        //     $booking->save();
+        // }
 
-        return redirect('03_bookings');
+        DB::statement('ALTER TABLE payments AUTO_INCREMENT = 1');
+        $payment = new Payment;
+        $payment->booking_id = $request->input('booking_id');
+        $payment->user_id = $request->input('user_id');
+        $payment->amount = $request->input('amount');
+        $payment->date = now()->timezone('Asia/Manila')->toDateString();
+        $payment->time = now()->timezone('Asia/Manila')->toTimeString();
+        $payment->owner = $request->input('owner');
+        $payment->cvv = $request->input('cvv');
+        $payment->month_exp = $request->input('month');
+        $payment->year_exp = $request->input('year');
+        $payment->save();
+        
+
+        return redirect('02_bookings');
     }
 
     //------------------------

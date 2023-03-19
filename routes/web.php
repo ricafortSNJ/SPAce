@@ -56,6 +56,11 @@ Route::get('/02_bookings', [DashboardController::class, 'bookingHistory']);
 Route::post('/02_bookings', [DashboardController::class, 'addBooking']);
 Route::get('/02_payments', [DashboardController::class, 'paymentHistory']);
 
+Route::get('/02_pay/{booking_id}', [DashboardController::class, 'editPayment']);
+Route::post('/02_pay/{booking_id}', [DashboardController::class, 'updatePayment']);
+
+
+
 // Test-Routes
 
 Route::get('/test1_dashboard', [DashboardController::class, 'searchFunction']);
