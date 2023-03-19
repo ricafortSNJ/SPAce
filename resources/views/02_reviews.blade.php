@@ -16,6 +16,8 @@
 
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/2_assets/css/reviews.css">
+    
+    @include("layouts/02_head")
 </head>
 
 <body>

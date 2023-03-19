@@ -74,7 +74,7 @@
 
                 </div>
                 <div class="status-badge status-ongoing">On-Going</div>
-  <div class="buttons">
+                <div class="buttons">
                 <div class="buttons">
                   <button class="accept">Accept</button>
                   <button class="decline">Decline</button>
@@ -86,62 +86,33 @@
 
             </div>
 
+            @if (count($user_bookings) > 0)
+              @foreach ($user_bookings as $ub)
               <div class="booking-card">
                 <div class="user-profile">
-                  <img src="/3_assets/imgs/f1.jpg" alt="User Profile Picture">
+                  <img src="/image_uploads/{{$ub->user_id}}.jpg" alt="Customer Profile Picture">
                 </div>
                 <div class="user-info">
-                  <h2><span>Maritess Temporal</span></h2>
-                  <p><span>0945717478845</span></p>
-                  <p>BookingID: <span>121211</span></p>
-                  <p>Address: <span>134 Trinity Avenue Cubao QC</span></p>
-                  <div class="time-sched"><p>Schedule: <span>Thursday 10AM-12PM 03/23/2023</span></p></div>
-
-                  <div class="services-wrapper"><p>Services: <ul><li>Swedish Massage</li><li>Manicure and Pedicure</li></ul></p></div>
+                  <h2>Customer: <span>{{$ub->username}}</span></h2>
+                  <p>Contact #: <span>{{$ub->mobile_number}}</span></p>
+                  <p>BookingID: <span>2023-123-{{$ub->booking_id}}</span></p>
+                  <p>Address: <span>{{$ub->location}}</span></p>
+                  <div class="time-sched"><p>Schedule: <span>{{$ub->date}} {{$ub->time}}</span></p></div>
 
 
                 </div>
-                <div class="status-badge status-completed">Completed</div>
-  <div class="buttons">
+                <div class="status-badge status-ongoing">On-Going</div>
                 <div class="buttons">
-                  <button class="accept">Accept</button>
-                  <button class="decline">Decline</button>
+                  <div class="buttons">
+                    <button class="accept">Accept</button>
+                    <button class="decline">Decline</button>
+                  </div>
                 </div>
-            
               </div>
-
-
-
-            </div>
-
-              <div class="booking-card">
-                <div class="user-profile">
-                  <img src="/3_assets/imgs/f1.jpg" alt="User Profile Picture">
-                </div>
-                <div class="user-info">
-                  <h2><span>Maritess Temporal</span></h2>
-                  <p>Contact#: <span>0945717478845</span></p>
-                  <p>BookingID: <span>121211</span></p>
-                  <p>Address: <span>134 Trinity Avenue Cubao QC</span></p>
-                  <div class="time-sched"><p>Schedule: <span>Thursday 10AM-12PM 03/23/2023</span></p></div>
-
-                  <div class="services-wrapper"><p>Services: <ul><li>Swedish Massage</li><li>Manicure and Pedicure</li></ul></p></div>
-
-
-
-                </div>
-                <div class="status-badge status-completed">Completed</div>
-  <div class="buttons">
-                <div class="buttons">
-                  <button class="accept">Accept</button>
-                  <button class="decline">Decline</button>
-                </div>
-            
-              </div>
-
-
-
-            </div>
+              @endforeach
+              @else
+              <p>Nothing to show here</p>
+              @endif
 
         </div>
 

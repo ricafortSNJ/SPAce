@@ -18,6 +18,8 @@
 
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/2_assets/css/profile.css">
+    
+    @include("layouts/02_head")
 </head>
 
 <body>

@@ -6,7 +6,8 @@
 
                 <div class="search">
                     <label>
-                        <h1 style="color: #e5c29f; text-shadow: none;">Welcome {{Session::get("username")}}!</h1>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
 

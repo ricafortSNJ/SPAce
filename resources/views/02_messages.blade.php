@@ -27,6 +27,8 @@
 
 
     
+    @include("layouts/02_head")
+    
 </head>
 
 <body>

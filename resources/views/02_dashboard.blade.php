@@ -18,6 +18,8 @@
 
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/2_assets/css/style.css">
+    
+    @include("layouts/02_head")
 </head>
 
 <body>
@@ -138,17 +140,11 @@
                                 <div class="search-container">
                                     <select class="w3-select w3-border" name="expertise">
                                         <option value="" disabled selected>Expertise</option>
-                                        <option value="Skin Care Specialist">Skin Care Specialist</option>
-                                        <option value="Reflexologist">Reflexologist</option>
-                                        <option value="Reiki Practitioner">Reiki Practitioner</option>
-                                        <option value="Makeup Artist">Makeup Artist</option>
-                                        <option value="Hairstylist">Hairstylist</option>
-                                      </select> <br/>
-                                      <select class="w3-select w3-border" name="rate">
-                                        <option value="" disabled selected>Rates</option>
-                                        <option value="1000">PHP 1000 and below</option>
-                                        <option value="2000">PHP 2000 and below</option>
-                                        <option value="3000">PHP 3000 and below</option>
+                                        <option value="'Massage Therapist'">Massage Therapist</option>
+                                        <option value="'Acupuncturist'">Acupuncturist</option>
+                                        <option value="'Aromatherapist'">Aromatherapist</option>
+                                        <option value="'Chiropractor'">Chiropractor</option>
+                                        <option value="'Nail Technician'">Nail Technician</option>
                                       </select> <br/>
                                       <select class="w3-select w3-border" name="location">
                                         <option value="" disabled selected>Search for location</option>

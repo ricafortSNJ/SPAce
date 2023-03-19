@@ -203,7 +203,7 @@ class DashboardController extends Controller
         if ($expertise) {
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location, region, lat, lng FROM professionals AS pr1
             INNER JOIN profiles as pr2 ON pr1.profile_id = pr2.profile_id
-            INNER JOIN locations as l ON l.location = pr2.location WHERE region = " . $location . "LIMIT 5");
+            INNER JOIN locations as l ON l.location = pr2.location WHERE region = " . $location . " AND expertise = " . $expertise . " LIMIT 5;");
             return view('02_dashboard', compact('expertise', 'rate', 'location', 'results'));
         } else {
             $results = DB::select("SELECT pr1.professional_id, pr1.profile_id, username, expertise, availability, rates, pr2.location FROM professionals AS pr1
@@ -248,7 +248,7 @@ class DashboardController extends Controller
         $user_bookings = DB::select("SELECT booking_id, b.user_id, b.professional_id, username, date, time, status, location, mobile_number, availability, expertise FROM bookings as b
         INNER JOIN professionals as p ON b.professional_id = p.professional_id
         INNER JOIN profiles as p1 ON p1.profile_id = p.profile_id
-        WHERE b.user_id = " . $user_id);
+        WHERE b.user_id = " . $user_id . " ORDER BY date DESC");
         return view('02_bookings', compact('user_bookings'));
     }
 
@@ -423,10 +423,10 @@ class DashboardController extends Controller
         $user_id = Session::get("user_id");
         $messages_sent = DB::select("SELECT message_id, sender_id, receiver_id, p.username AS receiver_username, content, date, time FROM messages AS m
         INNER JOIN profiles AS p ON p.user_id = m.receiver_id
-        WHERE sender_id = " . $user_id);
+        WHERE sender_id = " . $user_id . " ORDER BY date DESC");
         $messages_received = DB::select("SELECT message_id, sender_id, receiver_id, p.username AS sender_username, content, date, time FROM messages AS m
         INNER JOIN profiles AS p ON p.user_id = m.sender_id
-        WHERE receiver_id = " . $user_id);
+        WHERE receiver_id = " . $user_id . " ORDER BY date DESC");
         
         return view('03_messages', compact('messages_received', 'messages_sent'));
     }
@@ -436,7 +436,7 @@ class DashboardController extends Controller
     {
         $user_id = Session::get("user_id");
         $professional_id = Session::get("professional_id");
-        $user_bookings = DB::select("SELECT booking_id, b.user_id, username, location, professional_id, date, time, status FROM bookings as b
+        $user_bookings = DB::select("SELECT booking_id, b.user_id, username, location, professional_id, date, time, status, mobile_number FROM bookings as b
         INNER JOIN profiles as p ON p.user_id = b.user_id
         WHERE professional_id = " . $professional_id);
         return view('03_bookings', compact('user_bookings'));

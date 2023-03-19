@@ -38,70 +38,43 @@
                 </div>
 
                 <table>
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="/3_assets/imgs/f1.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Violet <br /> 
-                                <span>Meet me at 6pm.</span><br />
-                            </h4>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="/3_assets/imgs/f2.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Maryjane <br /> 
-                                <span>Can you send me your exact address?</span><br />
-                            </h4>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="/3_assets/imgs/f1.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Violet <br /> 
-                                <span>Meet me at 6pm.</span><br />
-                            </h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="/3_assets/imgs/f2.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Maryjane <br /> 
-                                <span>Can you send me your exact address?</span><br />
-                            </h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="/3_assets/imgs/f1.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Violet <br /> 
-                                <span>Meet me at 6pm.</span><br />
-                            </h4>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="60px">
-                            <div class="imgBx"><img src="/3_assets/imgs/f2.jpg" alt=""></div>
-                        </td>
-                        <td>
-                            <h4>Maryjane <br /> 
-                                <span>Can you send me your exact address?</span><br />
-                            </h4>
-                        </td>
-                    </tr>
+                        @if (count($messages_received) > 0)
+                        @foreach ($messages_received as $mr)
+                        @if ($loop->iteration > 7)
+                        @break
+                        @endif
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="/image_uploads/{{$mr->sender_id}}.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>From: {{$mr->sender_username}}<br /> 
+                                    <span>Content: {{$mr->content}}</span><br />
+                                    <span>Time: {{$mr->time}}</span><br />
+                                    <span>Date: {{$mr->date}}</span><br />
+                                </h4>
+                            </td>
+                            <td></td>
+                            <script>
+                                var datetime = document.getElementById("datetime1");
+                                var currentDate = new Date();
+                                datetime.innerHTML = currentDate.toLocaleString();
+                            </script>
+                        
+                            <td  style="text-align: right;">
+                                <button class="btn message" id="message">
+                                    Message
+                                </button>
+                                <button class="btn message" id="message">
+                                    Profile
+                                </button>
+                            </td>
+                        </tr>
+                        @endforeach
+                        @else
+                        <p>Nothing to show here</p>
+                        @endif
                 </table>
             </div>
             
