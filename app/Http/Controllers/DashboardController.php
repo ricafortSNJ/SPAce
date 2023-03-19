@@ -168,8 +168,12 @@ class DashboardController extends Controller
     public function editProfile()
     {
         $user_id = Session::get("user_id");
-        $user = DB::select("SELECT us.user_id, email_address, username, first_name, last_name, mobile_number, social_media, location FROM users AS us
-        INNER JOIN profiles AS p ON us.user_id = p.user_id WHERE us.user_id = " . $user_id);
+        $user = DB::select("SELECT us.user_id, email_address, username, first_name, last_name, mobile_number, social_media, location, image FROM users AS us
+        INNER JOIN profiles AS p ON us.user_id = p.user_id
+        INNER JOIN user_images AS ui ON ui.user_id = p.user_id
+         WHERE us.user_id = " . $user_id . "
+        ORDER BY image DESC
+        LIMIT 1;");
         return view('02_profile-edit', compact('user'));
     }
 
@@ -186,8 +190,8 @@ class DashboardController extends Controller
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
             'mobile_number' => $request->input('mobile_number'),
-            'username' => $request->input('username'),
-            'social_media' => $request->input('social_media'),
+            // 'username' => $request->input('username'),
+            // 'social_media' => $request->input('social_media'),
             'location' => $request->input('location'),
         ]);
 

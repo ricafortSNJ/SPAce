@@ -491,3 +491,11 @@ body {
     left: initial;
   }
 }
+
+
+/* card container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1,fr);
+  grid-gap: 20px;
+}

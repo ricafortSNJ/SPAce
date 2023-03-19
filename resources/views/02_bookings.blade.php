@@ -18,6 +18,47 @@
     <link rel="stylesheet" href="/2_assets/css/booking.css">
     
     @include("layouts/02_head")
+    <style>
+      @media (max-width: 20px) {
+        img {
+          max-width: 30%;
+        }
+        }
+
+        img {
+        max-width: 75%;
+        height: auto;
+        }
+
+        #bg-video {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          min-width: 100%;
+          min-height: 100%;
+          z-index: 1;
+        }
+        .user-info {
+          font-size: 0.9rem !important;
+        }
+
+        .yes, .no{
+          background-color:  #2d4b5a;
+          color: #dca56a;
+        }
+
+        .services-wrapper {
+           
+          color: #2d4b5a !important;
+        }
+        .user-profile {
+          text-align: center;
+         
+        }
+
+       
+
+  </style>
 </head>
 
 <body>
@@ -31,7 +72,7 @@
         @include("layouts/02_topbar")
 
 <div class="booking-wrapper">
-    
+              
               @if (count($user_bookings) > 0)
               @foreach ($user_bookings as $ub)
               @if ($loop->iteration > 5)
@@ -42,16 +83,31 @@
                   <img src="/image_uploads/{{$ub->professional_id}}.jpg" alt="Therapist Profile Picture">
                 </div>
                 <div class="user-info">
-                  <h2><span>{{$ub->username}}</span></h2>
-                  <p>Contact #: <span>{{$ub->mobile_number}}</span></p>
-                  <p>BookingID: <span>2023-123-{{$ub->booking_id}}</span></p>
-                  <p>Address: <span>{{$ub->location}}</span></p>
-                  <div class="time-sched"><p>Schedule: <span>{{$ub->date}} {{$ub->time}}</span></p></div>
-                  <div class="services-wrapper"><p>Expertise: {{$ub->expertise}}</p></div>
-                  <div class="services-wrapper"><p>Price: ₱{{$ub->rates}}</p></div>
-
-
-                </div>
+                          <h2><span>{{$ub->username}}</span></h2>
+                          <table>
+                            <tr>
+                              <td>Contact#:</td>
+                              <td>{{$ub->mobile_number}}</td>
+                            </tr> 
+                            <tr>
+                              <td>Booking ID:</td>
+                              <td>2023-123-{{$ub->booking_id}}</td>
+                            </tr>
+                            <tr>
+                              <td>Address:</td>
+                              <td>{{$ub->location}}</td>
+                            </tr>
+                            <tr>
+                              <td>Schedule:</td>
+                              <td>{{$ub->date}} {{$ub->time}}</td>
+                            </tr>
+                            <tr>
+                              <td>Expertise:</td>
+                              <td>{{$ub->expertise}}</td>
+                            </tr>
+                            
+                          </table>
+                  </div>
                 <div class="status-badge status-ongoing">{{$ub->status}}</div>
                 @if ($ub->status =='Paid')
                 <div class="buttons">
@@ -62,8 +118,7 @@
                 @elseif ($ub->status =='Approved')
                 <div class="buttons">
                   <div class="buttons">
-                    <a class="btn btn-danger" href="/02_pay/{{$ub->booking_id}}">{{$ub->status}}</a>
-                    <button class="accept">Pay</button>
+                    <a class="btn btn-danger" href="/02_pay/{{$ub->booking_id}}"><button class="accept">Pay</button></a>
                   </div>
                 </div>
                 @endif

@@ -13,7 +13,47 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-6Z0lRgzJUgVRoC5K0vf0yLqNSv5eTU6RITg6iCrz2U4ny4L4OnhKj3qBo/VX5U5S" crossorigin="anonymous"></script>
 
 
+<style>
+      @media (max-width: 20px) {
+        img {
+          max-width: 30%;
+        }
+        }
 
+        img {
+        max-width: 75%;
+        height: auto;
+        }
+
+        #bg-video {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          min-width: 100%;
+          min-height: 100%;
+          z-index: 1;
+        }
+        .user-info {
+          font-size: 0.9rem !important;
+        }
+
+        .yes, .no{
+          background-color:  #2d4b5a;
+          color: #dca56a;
+        }
+
+        .services-wrapper {
+           
+          color: #2d4b5a !important;
+        }
+        .user-profile {
+          text-align: center;
+         
+        }
+
+       
+
+  </style>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/3_assets/css/booking_dets.css">
 </head>
