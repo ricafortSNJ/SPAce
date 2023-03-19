@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 09:54 AM
+-- Generation Time: Mar 19, 2023 at 12:36 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -263,30 +263,30 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`message_id`, `sender_id`, `receiver_id`, `content`, `date`, `time`) VALUES
-(1, 1, 2, 'Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 ', '2023-03-01', '10:30:00.000000'),
-(2, 1, 3, 'Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 2 ', '2023-03-02', '11:30:00.000000'),
-(3, 1, 4, 'Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 ', '2023-03-03', '12:30:00.000000'),
-(4, 1, 5, 'Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 ', '2023-03-04', '13:30:00.000000'),
-(5, 1, 6, 'Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 2', '2023-03-05', '14:30:00.000000'),
-(6, 2, 1, 'Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 3', '2023-03-06', '15:30:00.000000'),
-(7, 3, 1, 'Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 4', '2023-03-07', '16:30:00.000000'),
-(8, 4, 1, 'Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 5', '2023-03-08', '08:00:00.000000'),
-(9, 5, 1, 'Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 3', '2023-03-09', '09:00:00.000000'),
-(10, 6, 1, 'Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 4', '2023-03-01', '10:00:00.000000'),
-(11, 2, 1, 'Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 5', '2023-03-02', '11:00:00.000000'),
-(12, 3, 1, 'Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 6', '2023-03-03', '12:00:00.000000'),
-(13, 4, 1, 'Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 4', '2023-03-04', '13:00:00.000000'),
-(14, 5, 1, 'Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 5', '2023-03-05', '14:00:00.000000'),
-(15, 6, 1, 'Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 6', '2023-03-06', '15:00:00.000000'),
-(16, 2, 1, 'Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 7', '2023-03-07', '13:30:00.000000'),
-(17, 3, 1, 'Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 5', '2023-03-08', '14:30:00.000000'),
-(18, 4, 1, 'Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 6', '2023-03-09', '15:30:00.000000'),
-(19, 5, 1, 'Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 7', '2023-03-01', '16:30:00.000000'),
-(20, 6, 1, 'Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 8', '2023-03-02', '08:00:00.000000'),
-(21, 2, 1, 'Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 1 Message Test 6', '2023-03-03', '09:00:00.000000'),
-(22, 3, 1, 'Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 2 Message Test 7', '2023-03-04', '15:30:00.000000'),
-(23, 4, 1, 'Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 3 Message Test 8', '2023-03-05', '16:30:00.000000'),
-(24, 5, 1, 'Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 4 Message Test 9', '2023-03-06', '17:30:00.000000');
+(1, 1, 2, 'Magandang araw po! Gusto ko po sanang magtanong tungkol sa inyong therapy services. Ano po ang inyong mga serbisyo?', '2023-03-01', '10:30:00.000000'),
+(2, 1, 3, 'Mayroon po ba kayong available na slot para sa isang therapy session? Magkano po ang bayad at gaano katagal ito?', '2023-03-02', '11:30:00.000000'),
+(3, 1, 4, 'Maari po bang magtanong kung anong uri ng therapy ang nararapat sa akin? Mayroon po ba kayong free consultation?', '2023-03-03', '12:30:00.000000'),
+(4, 1, 5, 'Nais ko po sanang malaman kung ano ang inyong kwalipikasyon bilang isang therapist at kung mayroon kayong mga rekomendasyon mula sa mga naging kliyente ninyo.', '2023-03-04', '13:30:00.000000'),
+(5, 1, 6, 'Salamat po sa inyong mga serbisyo. Mayroon po ba kayong discounts o promos sa inyong mga regular na kliyente?', '2023-03-05', '14:30:00.000000'),
+(6, 2, 1, 'Kumusta po! Ako po ay isang lisensyadong propesyunal sa larangan ng therapy at handa po akong magbigay ng serbisyo sa inyo.', '2023-03-06', '15:30:00.000000'),
+(7, 3, 1, 'Kung kayo po ay naghahanap ng solusyon sa mga personal o pamilya ninyong problema, nandito po ako para tulungan kayo.', '2023-03-07', '16:30:00.000000'),
+(8, 4, 1, 'Mayroon po ba kayong nararamdaman na hindi maipaliwanag? Ako po ay handang makinig sa inyong kwento at magbigay ng suporta sa inyo.', '2023-03-08', '08:00:00.000000'),
+(9, 5, 1, 'Kung kayo po ay nakakaranas ng depression, anxiety, o iba pang mental health issues, ako po ay nandito para tulungan kayo.', '2023-03-09', '09:00:00.000000'),
+(10, 6, 1, 'Nag-aalala po ba kayo tungkol sa mga relationship problems ninyo? Ako po ay handang makipagtulungan sa inyo upang masolusyunan ito.', '2023-03-01', '10:00:00.000000'),
+(11, 2, 1, 'Sa pamamagitan ng therapy, maaari po nating matuklasan ang mga bagay na nagiging hadlang sa inyong pagkamit ng mga pangarap at mga layunin sa buhay.', '2023-03-02', '11:00:00.000000'),
+(12, 3, 1, 'Huwag po kayong mag-alala tungkol sa mga judgmental na pananaw sa therapy. Ako po ay handang makinig sa inyong mga kwento nang walang paghuhusga.', '2023-03-03', '12:00:00.000000'),
+(13, 4, 1, 'Ako po ay mayroong mga specialized na teknik at approach sa therapy upang masigurado na ang inyong mga kailangan ay nasusunod.', '2023-03-04', '13:00:00.000000'),
+(14, 5, 1, 'Maaari po akong magbigay ng tulong sa inyong pagtitiwala sa sarili, pagkakaroon ng mas malalim na relasyon sa mga mahal sa buhay, at marami pa.', '2023-03-05', '14:00:00.000000'),
+(15, 6, 1, 'Nagbibigay po ako ng malasakit, pagsuporta, at pag-intindi sa bawat kliyente.', '2023-03-06', '15:00:00.000000'),
+(16, 2, 1, 'Kung kayo po ay naghahanap ng makakausap tungkol sa inyong mga problema, ako po ay handa na makinig sa inyo.', '2023-03-07', '13:30:00.000000'),
+(17, 3, 1, 'Napakahalaga po ng kalidad ng kalusugan sa isip at damdamin. Handa po akong magtulungan sa inyo upang mapanatili ang inyong kalusugang ito.', '2023-03-08', '14:30:00.000000'),
+(18, 4, 1, 'Sa pamamagitan ng therapy, maaari po nating matutunan kung paano harapin ang stress at mga pagsubok sa buhay.', '2023-03-09', '15:30:00.000000'),
+(19, 5, 1, 'Kung kayo po ay may mga pagkabahala o takot sa mga bagay-bagay sa buhay, ako po ay handang magbigay ng tulong upang malampasan ito.', '2023-03-01', '16:30:00.000000'),
+(20, 6, 1, 'Maaari po tayong magtrabaho upang mapabuti ang inyong pakikitungo sa mga taong mahalaga sa inyo.', '2023-03-02', '08:00:00.000000'),
+(21, 2, 1, 'Ang therapy ay hindi lamang para sa mga may malalang problema. Maaari itong magbigay ng suporta at paglinaw sa kahit anong sitwasyon sa buhay.', '2023-03-03', '09:00:00.000000'),
+(22, 3, 1, 'Kung kayo po ay may mga katanungan tungkol sa therapy, huwag po kayong mag-alinlangan na magtanong. Handa po akong magbigay ng impormasyon.', '2023-03-04', '15:30:00.000000'),
+(23, 4, 1, 'Sa pamamagitan ng therapy, maaari po tayong magtrabaho upang maipaglaban ang inyong mga adhikain at pangarap sa buhay.', '2023-03-05', '16:30:00.000000'),
+(24, 5, 1, 'Ako po ay isang propesyunal sa larangan ng therapy at nais kong magbigay ng tulong sa inyo. Huwag po kayong mag-atubiling lumapit sa akin.', '2023-03-06', '17:30:00.000000');
 
 -- --------------------------------------------------------
 
@@ -603,24 +603,24 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`review_id`, `booking_id`, `reviewer_id`, `reviewee_id`, `rating`, `review`, `last_update`) VALUES
-(1, 1, 1, 2, 4, 'Lalong nangati ang aking balat at sumama ang pakiramdam ko matapos ang aming session. Not recommended.', '2023-03-09 19:22:30.000000'),
-(2, 2, 1, 3, 3, 'Tanggal ang sakit ng aking balakang! ', '2023-03-10 19:22:30.000000'),
-(3, 3, 1, 4, 4, 'Insert Review Here - hs82dk2', '2023-03-11 19:22:30.000000'),
-(4, 4, 1, 5, 4, 'Insert Review Here - 8sh27gg6', '2023-03-12 19:22:30.000000'),
-(5, 5, 1, 6, 5, 'Insert Review Here - y28h3usdbn', '2023-03-13 19:22:30.000000'),
-(6, 6, 1, 7, 5, 'Insert Review Here - 9823bds', '2023-03-14 19:22:30.000000'),
-(7, 7, 1, 8, 5, 'Insert Review Here - hs82dk2', '2023-03-15 19:22:30.000000'),
-(8, 8, 1, 9, 3, 'Insert Review Here - hs82dk2', '2023-03-16 19:22:30.000000'),
-(9, 9, 1, 10, 4, 'Insert Review Here - hs82dk2', '2023-03-17 19:22:30.000000'),
-(10, 1, 2, 1, 4, 'Insert Review Here - hs82dk2', '2023-03-07 20:22:30.000000'),
-(11, 2, 3, 1, 3, 'Insert Review Here - hs82dk2', '2023-03-08 20:22:30.000000'),
-(12, 3, 4, 1, 4, 'Insert Review Here - hs82dk2', '2023-03-09 20:22:30.000000'),
-(13, 4, 5, 1, 3, 'Insert Review Here - hs82dk2', '2023-03-10 20:22:30.000000'),
-(14, 5, 6, 1, 4, 'Insert Review Here - hs82dk2', '2023-03-11 20:22:30.000000'),
-(15, 6, 7, 1, 5, 'Insert Review Here - hs82dk2', '2023-03-12 20:22:30.000000'),
-(16, 7, 8, 1, 4, 'Insert Review Here - hs82dk2', '2023-03-13 20:22:30.000000'),
-(17, 8, 9, 1, 3, 'Insert Review Here - hs82dk2', '2023-03-14 20:22:30.000000'),
-(18, 9, 10, 1, 3, 'Insert Review Here - hs82dk2', '2023-03-15 20:22:30.000000');
+(1, 1, 1, 2, 5, 'Sobrang galing ng serbisyo ng masahe dito! Talagang nabawasan ang sakit ng aking likod.', '2023-03-09 19:22:30.000000'),
+(2, 2, 1, 3, 3, 'Ang linis at maayos ng lugar, nakakarelax ang ambiance at talagang worth it ang bayad sa masahe.', '2023-03-10 19:22:30.000000'),
+(3, 3, 1, 4, 4, 'Napaka-professional ng mga therapist dito, talagang nakakawala ng stress at pahinga ang katawan.', '2023-03-11 19:22:30.000000'),
+(4, 4, 1, 5, 4, 'Sulit ang bawat sentimo sa masahe dito, ang galing ng pagpapamasahe at nakakawala ng sakit sa katawan.', '2023-03-12 19:22:30.000000'),
+(5, 5, 1, 6, 4, 'Mababait at magagaling ang mga therapist dito, talagang nakakatanggal ng pagod at stress.', '2023-03-13 19:22:30.000000'),
+(6, 6, 1, 7, 5, 'Ang sarap ng pakiramdam pagkatapos ng masahe dito, talagang nabawasan ang tensyon sa katawan.', '2023-03-14 19:22:30.000000'),
+(7, 7, 1, 8, 3, 'Highly recommended ang masahe dito, talagang magaling sila sa pagpapamasahe at napakarelax ng ambiance.', '2023-03-15 19:22:30.000000'),
+(8, 8, 1, 9, 5, 'Talagang nakakatanggal ng sakit sa katawan ang masahe dito, sulit na sulit ang bayad.', '2023-03-16 19:22:30.000000'),
+(9, 9, 1, 10, 4, 'Sobrang linis at maayos ng lugar, nakakawala ng stress ang ambiance at nakaka-relax ng katawan ang masahe.', '2023-03-17 19:22:30.000000'),
+(10, 1, 2, 1, 4, 'Salamat po sa pagtitiwala sa akin bilang inyong therapist. Natutuwa ako at nakatulong ako sa inyong pagpapagaan ng pakiramdam.', '2023-03-07 20:22:30.000000'),
+(11, 2, 3, 1, 4, 'Masaya ako na nakapagbigay ako sa inyo ng tamang presyon at tamang teknik sa inyong masahe. Salamat po sa pagtitiwala sa aking serbisyo.', '2023-03-08 20:22:30.000000'),
+(12, 3, 4, 1, 3, 'Nakatutulong po talaga sa atin ang regular na masahe para maalis ang tensyon at kirot sa katawan. Salamat po sa pagpapahalaga sa inyong kalusugan.', '2023-03-09 20:22:30.000000'),
+(13, 4, 5, 1, 4, 'Salamat po sa magandang feedback. Inaalagaan ko talaga ang kalidad ng aking serbisyo para maibigay ang relaxation at healing na kailangan ng aking mga kliyente.', '2023-03-10 20:22:30.000000'),
+(14, 5, 6, 1, 4, 'Masaya ako na naging kumportable kayo sa aking serbisyo. Maraming salamat po sa pagtitiwala sa akin at sa pagpapakita ng respeto sa aking propesyon.', '2023-03-11 20:22:30.000000'),
+(15, 6, 7, 1, 4, 'Natutuwa ako na nakapagbigay ako sa inyo ng tamang masahe para maalis ang stress at tension sa katawan. Salamat po sa pagtitiwala sa aking serbisyo.', '2023-03-12 20:22:30.000000'),
+(16, 7, 8, 1, 3, 'Salamat po sa magandang karanasan sa aking serbisyo. Nais ko pong magbigay ng pinakamahusay na serbisyo para sa inyo.', '2023-03-13 20:22:30.000000'),
+(17, 8, 9, 1, 5, 'Masarap po sa pakiramdam na nakatulong ako sa inyo sa pamamagitan ng aking masahe. Salamat po sa pagtitiwala sa aking kakayahan.', '2023-03-14 20:22:30.000000'),
+(18, 9, 10, 1, 4, 'Nakatutulong po talaga sa atin ang magpa-masahe para maibsan ang mga sakit at kirot sa katawan. Salamat po sa pagpapahalaga sa inyong kalusugan.', '2023-03-15 20:22:30.000000');
 
 -- --------------------------------------------------------
 
