@@ -199,6 +199,9 @@
 
                     <table>
                     @foreach ($results as $r)
+                    @if ($loop->iteration > 5)
+                    @break
+                    @endif
                         <tr>
                             <td width="80px">
                               <div class="imgBx"><img src="/2_assets/imgs/f2.jpg" alt=""></div>

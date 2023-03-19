@@ -1,7 +1,7 @@
 <div class="navigation">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="/">
                         <span class="icon">
                             
                     

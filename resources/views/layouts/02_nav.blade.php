@@ -3,10 +3,11 @@
           <ul>
             <li>
                 <a href="/">
-                    <span class="icon">
-                        <ion-icon class="las la-skull-crossbones"></ion-icon>
-                    </span>
-                    <span class="title">Brand Name</span>
+                <span class="icon">
+                            
+                    
+                            <span class="title"><img src="/2_assets/imgs/logo.png" style="width: 200px" alt="logo-spa">
+                               </span>
                 </a>
             </li>
 
