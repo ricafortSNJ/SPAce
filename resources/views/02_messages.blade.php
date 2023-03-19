@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Messages</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
@@ -97,14 +97,20 @@
                             </td>
                         </tr>
 
+                        @if (count($messages_received) > 0)
+                        @foreach ($messages_received as $mr)
+                        @if ($loop->iteration > 7)
+                        @break
+                        @endif
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/2_assets/imgs/f2.jpg" alt=""></div>
+                                <div class="imgBx"><img src="/image_uploads/{{$mr->sender_id}}.jpg" alt=""></div>
                             </td>
                             <td>
-                                <h4>Maryjane <br /> 
-                                    <span>Can you send me your exact address?</span><br />
-                                      <span id="datetime1"></span><br />
+                                <h4>From: {{$mr->sender_username}}<br /> 
+                                    <span>Content: {{$mr->content}}</span><br />
+                                    <span>Time: {{$mr->time}}</span><br />
+                                    <span>Date: {{$mr->date}}</span><br />
                                 </h4>
                             </td>
                             <td></td>
@@ -123,113 +129,12 @@
                                 </button>
                             </td>
                         </tr>
+                        @endforeach
+                        @else
+                        <p>Nothing to show here</p>
+                        @endif
                         
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="/2_assets/imgs/f1.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Violet <br /> 
-                                    <span>Meet me at 6pm.</span><br />
-                                <span id="datetime2"></span><br />
-                                </h4>
-                            </td>
-                            <td></td>
-                            <script>
-                                var datetime = document.getElementById("datetime2");
-                                var currentDate = new Date();
-                                datetime.innerHTML = currentDate.toLocaleString();
-                            </script>
                         
-                            <td  style="text-align: right;">
-                                <button class="btn message" id="message">
-                                    Message
-                                </button>
-                                <button class="btn message" id="message">
-                                    Profile
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="/2_assets/imgs/f2.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Maryjane <br /> 
-                                    <span>Can you send me your exact address?</span><br />
-                                <span id="datetime3"></span><br />
-                                </h4>
-                            </td>
-                            <td></td>
-                            <script>
-                                var datetime = document.getElementById("datetime3");
-                                var currentDate = new Date();
-                                datetime.innerHTML = currentDate.toLocaleString();
-                            </script>
-                        
-                            <td  style="text-align: right;">
-                                <button class="btn message" id="message">
-                                    Message
-                                </button>
-                                <button class="btn message" id="message">
-                                    Profile
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="/2_assets/imgs/f1.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Violet <br /> 
-                                    <span>Meet me at 6pm.</span><br />
-                               <span id="datetime4"></span><br />
-                                </h4>
-                            </td>
-                            <td></td>
-                            <script>
-                                var datetime = document.getElementById("datetime4");
-                                var currentDate = new Date();
-                                datetime.innerHTML = currentDate.toLocaleString();
-                            </script>
-                        
-                            <td  style="text-align: right;">
-                                <button class="btn message" id="message">
-                                    Message
-                                </button>
-                                <button class="btn message" id="message">
-                                    Profile
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="/2_assets/imgs/f2.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Maryjane <br /> 
-                                    <span>Can you send me your exact address?</span><br />
-                                <span id="datetime5"></span><br />
-                                </h4>
-                            </td>
-                            <td></td>
-                            <script>
-                                var datetime = document.getElementById("datetime5");
-                                var currentDate = new Date();
-                                datetime.innerHTML = currentDate.toLocaleString();
-                            </script>
-                        
-                            <td  style="text-align: right;">
-                                <button class="btn message" id="message">
-                                    Message
-                                </button>
-                                <button class="btn message" id="message">
-                                    Profile
-                                </button>
-                            </td>
-                        </tr>
                     </table>
                 </div>
             </div>

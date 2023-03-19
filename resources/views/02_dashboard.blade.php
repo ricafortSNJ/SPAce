@@ -204,19 +204,20 @@
                     @endif
                         <tr>
                             <td width="80px">
-                              <div class="imgBx"><img src="/2_assets/imgs/f2.jpg" alt=""></div>
+                              <div class="imgBx"><img src="/image_uploads/{{$r->profile_id}}.jpg" alt=""></div>
                             </td>
                             <td  width="250px">
                               <div class="info-container">
-                                <h4>{{$r->username}}<br /> 
-                                  <span>{{$r->location}}</span>
+                                <h4  style="font-weight: bold;">{{$r->username}}<br /> 
+                                <h5>
+                                  <small >Location: {{$r->location}}</small>
                                   <br>
                                   <small>Expertise: {{$r->expertise}}</small>
                                   <br>
-                                  <small>Rates: {{$r->rates}}</small>
+                                  <small>Rates: ₱{{$r->rates}}</small>
                                   <br>
                                   <small>Availability: {{$r->availability}}</small>
-                                </h4>
+                                </h5>
                             <!-- </tr>
                             <tr> -->
                                 <td>

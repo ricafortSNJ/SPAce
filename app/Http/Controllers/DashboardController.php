@@ -216,11 +216,11 @@ class DashboardController extends Controller
     public function showReviews()
     {
         $user_id = Session::get("user_id");
-        $user_reviews = DB::select("SELECT username, booking_id, rating, review, last_update FROM users AS us
+        $user_reviews = DB::select("SELECT username, booking_id, rating, review, last_update, profile_id FROM users AS us
         INNER JOIN profiles AS p ON us.user_id = p.user_id 
         INNER JOIN reviews AS r ON us.user_id = reviewer_id
         WHERE reviewer_id = " . $user_id);
-        $professional_reviews = DB::select("SELECT username, booking_id, rating, review, last_update FROM users AS us
+        $professional_reviews = DB::select("SELECT username, booking_id, rating, review, last_update, profile_id FROM users AS us
         INNER JOIN profiles AS p ON us.user_id = p.user_id 
         INNER JOIN reviews AS r ON us.user_id = reviewer_id
         WHERE reviewee_id = " . $user_id);
@@ -233,10 +233,10 @@ class DashboardController extends Controller
         $user_id = Session::get("user_id");
         $messages_sent = DB::select("SELECT message_id, sender_id, receiver_id, p.username AS receiver_username, content, date, time FROM messages AS m
         INNER JOIN profiles AS p ON p.user_id = m.receiver_id
-        WHERE sender_id = " . $user_id);
+        WHERE sender_id = " . $user_id . " ORDER BY date DESC");
         $messages_received = DB::select("SELECT message_id, sender_id, receiver_id, p.username AS sender_username, content, date, time FROM messages AS m
         INNER JOIN profiles AS p ON p.user_id = m.sender_id
-        WHERE receiver_id = " . $user_id);
+        WHERE receiver_id = " . $user_id . " ORDER BY date DESC");
         
         return view('02_messages', compact('messages_received', 'messages_sent'));
     }

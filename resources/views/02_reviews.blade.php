@@ -72,14 +72,14 @@
               @break
               @endif
                 <div class="comment">
-                  <img src="https://i.imgur.com/zQZSWrt.jpg" alt="Profile picture of Brian Selter">
+                  <img src="/image_uploads/{{$pr->profile_id}}.jpg" alt="Profile picture of Brian Selter">
                   <div class="comment-details">
                     <div class="comment-header">
                       <h3>By: {{$pr->username}}</h3>
                       <h5>Booking Id: {{$pr->booking_id}}</h5>
                       <span class="comment-time">Last Update: {{$pr->last_update}}</span>
                     </div>
-                    <p>Comments: {{$pr->review}}</p>
+                    <p style="color: black;">Comments: {{$pr->review}}</p>
                   </div>
                 </div>
               <hr>
@@ -99,14 +99,14 @@
               @break
               @endif
                 <div class="comment">
-                  <img src="https://i.imgur.com/zQZSWrt.jpg" alt="Profile picture of Brian Selter">
+                  <img src="/image_uploads/{{$ur->profile_id}}.jpg" alt="Profile picture of Brian Selter">
                   <div class="comment-details">
                     <div class="comment-header">
                       <h3>By: {{$ur->username}}</h3>
                       <h5>Booking Id: {{$ur->booking_id}}</h5>
                       <span class="comment-time">Last Update: {{$ur->last_update}}</span>
                     </div>
-                    <p>Comments: {{$ur->review}}</p>
+                    <p style="color: black;">Comments: {{$ur->review}}</p>
                   </div>
                 </div>
               <hr>
