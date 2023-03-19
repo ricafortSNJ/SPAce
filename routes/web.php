@@ -96,8 +96,8 @@ Route::get('/03_dashboard', function() {
 Route::get('/03_earnings', function() {
     return view('03_earnings');
 });
-Route::get('/03_bookings/edit/{booking_id}', [DashboardController::class, 'editBooking']);
-Route::post('/03_bookings/edit/{booking_id}', [DashboardController::class, 'updateBooking']);
+Route::get('/03_bookings/edit/{booking_id}/1', [DashboardController::class, 'acceptBooking']);
+Route::get('/03_bookings/edit/{booking_id}/2', [DashboardController::class, 'declineBooking']);
 
 Route::get('/03_profile', [DashboardController::class, 'showProfile_p']);
 Route::get('/03_profile/edit', [DashboardController::class, 'editProfile_p']);

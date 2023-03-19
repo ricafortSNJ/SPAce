@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
+
+    @include("layouts/01_head")
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="/2_assets/css/appointment.css">
 
@@ -479,7 +481,6 @@ if (window.JotForm && JotForm.accessible) $('input_13').setAttribute('tabindex',
 JotForm.paymentExtrasOnTheFly([null,{"name":"carService","qid":"1","text":"Car Service Booking Form","type":"control_head"},{"name":"submit2","qid":"2","text":"Book Now","type":"control_button"},{"name":"name","qid":"3","text":"Name","type":"control_fullname"},{"name":"email","qid":"4","subLabel":"example@example.com","text":"Email","type":"control_email"},{"name":"phoneNumber","qid":"5","text":"Phone Number","type":"control_phone"},{"name":"address","qid":"6","text":"Address","type":"control_address"},{"name":"selectAn","qid":"7","text":"Select an Appointment Date","type":"control_appointment"},{"name":"availableTherapists","qid":"8","text":"Available Therapists","type":"control_radio"},null,null,null,{"name":"typeOf","qid":"12","text":"Type of Services","type":"control_checkbox"},{"name":"anySpecial","qid":"13","text":"Any Special Instructions","type":"control_textarea"},{"name":"customerInformation","qid":"14","text":"Customer Information","type":"control_head"},{"name":"addons","qid":"15","subLabel":"","text":"Add-ons","type":"control_textbox"},{"name":"bookingRequest","qid":"16","text":"Booking Request No.","type":"control_autoincrement"}]);}, 20); 
 </script>
 
-
 </head>
 
 <body>
@@ -498,107 +499,55 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"carService","qid":"1","text":"Car S
 
             <!-- ================ Map ================= -->
 <div class="card-container">
-  <div class="column">
-            <div class="details">
-                <div class="mapsNearU">
-                    <div class="cardHeader">
-                        <form class="jotform-form" action="https://submit.jotform.com/submit/230711579126455" method="post" name="form_230711579126455" id="230711579126455" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="230711579126455" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" />
-                            <div role="main" class="form-all">
-                              <div class="form-section page-section">
-                                <li id="cid_1" class="form-input-wide" data-type="control_head">
-                                  <div class="form-header-group  header-large">
-                                    <div class="header-text httac htvam">
-                                      <h1 id="header_1" class="form-header" data-component="header">Appointment Booking Form</h1>
-                                    </div>
-                                  </div>
-                                </li>
-                                <li class="form-line" data-type="control_appointment" id="id_7"><label class="form-label form-label-top" id="label_7" for="input_7"> Select an Appointment Date </label>
-                                  <div id="cid_7" class="form-input-wide" data-layout="full">
-                                    <div id="input_7" class="appointmentFieldWrapper jfQuestion-fields"><input class="appointmentFieldInput" name="q7_selectAn[implementation]" value="new" id="input_7implementation" /><input class="appointmentFieldInput " name="q7_selectAn[date]" id="input_7_date" data-timeformat="AM/PM" /><input class="appointmentFieldInput" name="q7_selectAn[duration]" value="60" id="input_7_duration" /><input class="appointmentFieldInput" name="q7_selectAn[timezone]" value="Australia/Sydney (GMT+10:00)" id="input_7_timezone" />
-                                      <div class="appointmentField"></div>
-                                    </div>
-                                  </div>
-                                </li>
-                                                    
-                                <!-- <li class="form-line" data-type="control_textarea" id="id_13"><label class="form-label form-label-top form-label-auto" id="label_13" for="input_13"> Remarks </label>
-                                  <div id="cid_13" class="form-input-wide" data-layout="full"> <textarea id="input_13" class="form-textarea" name="q13_anySpecial" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_13"></textarea> </div>
-                                </li> -->
-                                <img src="/2_assets/imgs/sitenamedbg.png" style="size: 50%; text-align: center; margin-left: 80px; margin-bottom: 10px;"/>
-                                
-                                <li class="form-line" data-type="control_button" id="id_2">
-                                  <div id="cid_2" class="form-input-wide" data-layout="full">
-                                    <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">Book Now</button></div>
-                                  </div>
-                                </li>
-                                <li style="display:none">Should be Empty: <input type="text" name="website" value="" /></li>
-                              </ul>
+<div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7);">
+                    <h1 class="text-white text-center mb-4">Make Appointment</h1>
+                    <form action="/appointment" method="POST">
+                        @csrf
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control bg-transparent p-4" placeholder="Your Name" required="required" />
+                                </div>
                             </div>
-                            <script>
-                              JotForm.showJotFormPowered = "new_footer";
-                            </script>
-                            <script>
-                              JotForm.poweredByText = "Powered by Jotform";
-                            </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="230711579126455" />
-                            <script type="text/javascript">
-                              var all_spc = document.querySelectorAll("form[id='230711579126455'] .si" + "mple" + "_spc");
-                              for (var i = 0; i < all_spc.length; i++)
-                              {
-                                all_spc[i].value = "230711579126455-230711579126455";
-                              }
-                            </script>
-                          </form>
-
-                
-            </div>
-        <!-- </div> -->
-   
-
-      <div class="column">
-                <!-- <div class="details"> -->
-                    <!-- <div class="mapsNearU"> -->
-                        <div class="cardHeader">
-                            <form class="jotform-form" action="https://submit.jotform.com/submit/230711579126455" method="post" name="form_230711579126455" id="230711579126455" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="230711579126455" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" />
-                                <div role="main" class="form-all">
-                                  <div class="form-section page-section">
-                                    <li id="cid_1" class="form-input-wide" data-type="control_head">
-                                      <div class="form-header-group  header-large">
-                                        <div class="header-text httac htvam">
-                                          <h1 id="header_1" class="form-header" data-component="header">Appointment Booking Form</h1>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="email" name="email_address" class="form-control bg-transparent p-4" placeholder="Your Email" required="required" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="date" id="date" data-target-input="nearest">
+                                        <input type="text" name="date" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Select Date" data-target="#date" data-toggle="datetimepicker"/>
                                     </div>
-                                  </div>
-
-                                          <li class="form-line" data-type="control_radio" id="id_8"><label class="form-label form-label-top form-label-auto" id="label_8" for="input_8"> Available Therapists </label>
-                                            <div id="cid_8" class="form-input-wide" data-layout="full">
-                                              <div class="form-multiple-column" data-columncount="2" role="group" aria-labelledby="label_8" data-component="radio"><span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_0" name="q8_availableTherapists" value="Angela" /><label id="label_input_8_0" for="input_8_0">Angela</label></span><span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_1" name="q8_availableTherapists" value="Alexandria" /><label id="label_input_8_1" for="input_8_1">Alexandria</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_2" name="q8_availableTherapists" value="Viola" /><label id="label_input_8_2" for="input_8_2">Viola</label></span><span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_3" name="q8_availableTherapists" value="Kate" /><label id="label_input_8_3" for="input_8_3">Kate</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_4" name="q8_availableTherapists" value="Fiona" /><label id="label_input_8_4" for="input_8_4">Fiona</label></span><span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_5" name="q8_availableTherapists" value="Karyll" /><label id="label_input_8_5" for="input_8_5">Karyll</label></span>
-                                                
-                                                <span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_6" name="q8_availableTherapists" value="Michael" /><label id="label_input_8_6" for="input_8_6">Michael</label></span><span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_7" name="q8_availableTherapists" value="Minerva" /><label id="label_input_8_7" for="input_8_7">Minerva</label></span>
-                                                
-                                                <span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_8" name="q8_availableTherapists" value="Jopay" /><label id="label_input_8_8" for="input_8_8">Jopay</label></span>
-                                                
-                                                <span class="form-radio-item"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio" id="input_8_9" name="q8_availableTherapists" value="Nina" /><label id="label_input_8_9" for="input_8_9">Nina</label></span><span class="form-radio-item formRadioOther">
-                                                
-                                                <!-- <input type="radio" class="form-radio-other form-radio" name="q8_availableTherapists" id="other_8" value="other" tabindex="0" aria-label="Random Therapist" /><label id="label_other_8" style="text-indent:0" for="other_8">Random Therapist</label><span id="other_8_input" class="other-input-container" style="display:none"> -->
-                                                  
-                                                  <input type="text" class="form-radio-other-input form-textbox" name="q8_availableTherapists[other]" data-otherhint="Random Therapist" size="15" id="input_8" data-placeholder="Please type another option here" placeholder="Please type another option here" /></span></span></div>
-                                            </div>
-                                          </li>
-                                          <!-- <li class="form-line" data-type="control_textbox" id="id_15"><label class="form-label form-label-top form-label-auto" id="label_15" for="input_15"> Add-ons </label>
-                                            <div id="cid_15" class="form-input-wide" data-layout="half"> <input type="text" id="input_15" name="q15_addons" data-type="input-textbox" class="form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" placeholder="Scented Candle, Extra Towel etc." data-component="textbox" aria-labelledby="label_15" /> </div>
-                                          </li> -->
-
-                                          
-  <li class="form-line" data-type="control_checkbox" id="id_12"><label class="form-label form-label-top form-label-auto" id="label_12" for="input_12"> Type of Services </label>
-    <div id="cid_12" class="form-input-wide" data-layout="full">
-      <div class="form-multiple-column" data-columncount="2" role="group" aria-labelledby="label_12" data-component="checkbox"><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_0" name="q12_typeOf[]" value="Amma Therapy" /><label id="label_input_12_0" for="input_12_0">Amma Therapy</label></span><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_1" name="q12_typeOf[]" value="Ayurvedic Massage" /><label id="label_input_12_1" for="input_12_1">Ayurvedic Massage</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_2" name="q12_typeOf[]" value="Balinese Massage" /><label id="label_input_12_2" for="input_12_2">Balinese Massage</label></span><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_3" name="q12_typeOf[]" value="Belavi" /><label id="label_input_12_3" for="input_12_3">Belavi</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_4" name="q12_typeOf[]" value="Body Electric Massage" /><label id="label_input_12_4" for="input_12_4">Body Electric Massage</label></span><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_5" name="q12_typeOf[]" value="Canadian Deep Tissue Muscle Massage" /><label id="label_input_12_5" for="input_12_5">Canadian Deep Tissue Muscle Massage</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_6" name="q12_typeOf[]" value="Craniosacral Massage Therapy" />
-        
-        <!-- <label id="label_input_12_6" for="input_12_6">Craniosacral Massage Therapy</label></span><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_7" name="q12_typeOf[]" value="Esalen Massage" /><label id="label_input_12_7" for="input_12_7">Esalen Massage</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_8" name="q12_typeOf[]" value="Five Element Shiatsu" /><label id="label_input_12_8" for="input_12_8">Five Element Shiatsu</label></span><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_9" name="q12_typeOf[]" value="Lomi Lomi" /><label id="label_input_12_9" for="input_12_9">Lomi Lomi</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_10" name="q12_typeOf[]" value="Manual Lymphatic Drainage" /><label id="label_input_12_10" for="input_12_10">Manual Lymphatic Drainage</label></span><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_11" name="q12_typeOf[]" value="Pfrimmer Deep Muscle Therapy" /><label id="label_input_12_11" for="input_12_11">Pfrimmer Deep Muscle Therapy</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_12" name="q12_typeOf[]" value="Raindrop Technique Massage" /><label id="label_input_12_12" for="input_12_12">Raindrop Technique Massage</label></span><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_13" name="q12_typeOf[]" value="Rolfing" /><label id="label_input_12_13" for="input_12_13">Rolfing</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_14" name="q12_typeOf[]" value="Russian Massage" /><label id="label_input_12_14" for="input_12_14">Russian Massage</label></span><span class="form-checkbox-item"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_15" name="q12_typeOf[]" value="Thai Herbal Massage" /><label id="label_input_12_15" for="input_12_15">Thai Herbal Massage</label></span><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_12" class="form-checkbox" id="input_12_16" name="q12_typeOf[]" value="Trigger Point Myotherapy Massage" /><label id="label_input_12_16" for="input_12_16">Trigger Point Myotherapy Massage</label></span></div> -->
-    </div>
-  </li>
-  
-  <li class="form-line" data-type="control_textarea" id="id_13" style="margin-bottom: 10px;"><label class="form-label form-label-top form-label-auto" id="label_13" for="input_13"> Any Special Instructions </label>
-    <div id="cid_13" class="form-input-wide" data-layout="full"> <textarea id="input_13" class="form-textarea" name="q13_anySpecial" style="width:648px;height:194px" data-component="textarea" aria-labelledby="label_13"></textarea> </div>
-  </li>
-</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="time" id="time" data-target-input="nearest">
+                                        <input type="text" name="time" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Select Time" data-target="#time" data-toggle="datetimepicker"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <select  name="service" class="custom-select bg-transparent px-4" style="height: 47px;">
+                                        <option selected>Select A Service</option>
+                                        <option value="1">Service 1</option>
+                                        <option value="2">Service 1</option>
+                                        <option value="3">Service 1</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-primary btn-block" style="height: 47px;">Make Appointment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 </div>
 
 
@@ -610,6 +559,10 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"carService","qid":"1","text":"Car S
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    
+
+    @include("layouts/01_end")
 </body>
 
 </html>

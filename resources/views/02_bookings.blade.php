@@ -105,6 +105,10 @@
                               <td>Expertise:</td>
                               <td>{{$ub->expertise}}</td>
                             </tr>
+                            <tr>
+                              <td>Price:</td>
+                              <td>₱{{$ub->rates}}</td>
+                            </tr>
                             
                           </table>
                   </div>
@@ -112,13 +116,12 @@
                 @if ($ub->status =='Paid')
                 <div class="buttons">
                   <div class="buttons">
-                    <button class="decline">Review</button>
                   </div>
                 </div>
                 @elseif ($ub->status =='Approved')
                 <div class="buttons">
                   <div class="buttons">
-                    <a class="btn btn-danger" href="/02_pay/{{$ub->booking_id}}"><button class="accept">Pay</button></a>
+                    <a class="btn btn-success" href="/02_pay/{{$ub->booking_id}}"><button class="accept">Pay</button></a>
                   </div>
                 </div>
                 @endif

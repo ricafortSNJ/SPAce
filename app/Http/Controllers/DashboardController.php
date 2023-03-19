@@ -509,12 +509,23 @@ class DashboardController extends Controller
     }
 
     // Update Booking Status
-    public function updateBooking($booking_id, Request $request)
+    public function acceptBooking($booking_id)
     {
         $user_id = Session::get("user_id");
         $booking = Booking::where('booking_id', $booking_id)
         ->update([
-            'status' => $request->input('status'),
+            'status' => 'Approved',
+        ]);
+
+        return redirect('03_bookings');
+    }
+
+    public function declineBooking($booking_id)
+    {
+        $user_id = Session::get("user_id");
+        $booking = Booking::where('booking_id', $booking_id)
+        ->update([
+            'status' => 'Cancelled',
         ]);
 
         return redirect('03_bookings');
