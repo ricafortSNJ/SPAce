@@ -386,11 +386,18 @@ class DashboardController extends Controller
     public function showProfile_p()
     {
         $user_id = Session::get("user_id");
-        $user = DB::select("SELECT us.user_id, professional_id, email_address, username, first_name, last_name, mobile_number, social_media, location, expertise, availability, rates FROM users AS us INNER JOIN profiles AS p ON us.user_id = p.user_id INNER JOIN professionals AS p1 ON p.profile_id = p1.profile_id WHERE us.user_id = " . $user_id);
+        $user = DB::select("SELECT us.user_id, professional_id, email_address, username, first_name, last_name, mobile_number, social_media, location, expertise, availability, rates, image FROM users AS us 
+        INNER JOIN profiles AS p ON us.user_id = p.user_id 
+        INNER JOIN professionals AS p1 ON p.profile_id = p1.profile_id
+        INNER JOIN user_images AS ui ON ui.user_id = p.user_id 
+        WHERE us.user_id = " . $user_id . "
+        ORDER BY image DESC
+        LIMIT 1;");
         if (!empty($user)) {
             $firstUser = $user[0];
             session()->put('username', $firstUser->username);
             session()->put('professional_id', $firstUser->professional_id);
+            session()->put('image', $firstUser->image);
         }
         return view('03_profile', compact('user'));
     }
@@ -399,7 +406,12 @@ class DashboardController extends Controller
     public function editProfile_p()
     {
         $user_id = Session::get("user_id");
-        $user = DB::select("SELECT us.user_id, professional_id, email_address, username, first_name, last_name, mobile_number, social_media, location, expertise, availability, rates FROM users AS us INNER JOIN profiles AS p ON us.user_id = p.user_id INNER JOIN professionals AS p1 ON p.profile_id = p1.profile_id WHERE us.user_id = " . $user_id);
+        $user = DB::select("SELECT us.user_id, email_address, username, first_name, last_name, mobile_number, social_media, location, image FROM users AS us
+        INNER JOIN profiles AS p ON us.user_id = p.user_id
+        INNER JOIN user_images AS ui ON ui.user_id = p.user_id
+         WHERE us.user_id = " . $user_id . "
+        ORDER BY image DESC
+        LIMIT 1;");
         return view('03_profile-edit', compact('user'));
     }
 
@@ -486,7 +498,7 @@ class DashboardController extends Controller
         $professional_id = Session::get("professional_id");
         $user_bookings = DB::select("SELECT booking_id, b.user_id, username, location, professional_id, date, time, status, mobile_number FROM bookings as b
         INNER JOIN profiles as p ON p.user_id = b.user_id
-        WHERE professional_id = " . $professional_id . " ORDER BY booking_id DESC");
+        WHERE professional_id = " . $professional_id);
         return view('03_bookings', compact('user_bookings'));
     }
 
@@ -552,6 +564,23 @@ class DashboardController extends Controller
         ]);
 
         return redirect('03_bookings');
+    }
+
+    public function upload_p(Request $request)
+    {
+        $user_id = Session::get("user_id");
+        DB::statement('ALTER TABLE user_images AUTO_INCREMENT = 1');
+        $sp = new UserImage;
+        //$sp->student_id = $id;
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHiu') . $file->getClientOriginalName();
+            $file->move(public_path('image_uploads'), $filename);
+            $sp->user_id = $user_id;
+            $sp->image = $filename;
+        }
+        $sp->save();
+        return redirect("/03_profile");
     }
     
 

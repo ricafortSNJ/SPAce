@@ -68,7 +68,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">$11.50</div>
+                        <div class="numbers">₱91751.50</div>
                         <div class="cardName">Rewards</div>
                     </div>
 

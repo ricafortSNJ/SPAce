@@ -103,6 +103,7 @@ Route::get('/03_bookings/edit/{booking_id}/2', [DashboardController::class, 'dec
 Route::get('/03_profile', [DashboardController::class, 'showProfile_p']);
 Route::get('/03_profile/edit', [DashboardController::class, 'editProfile_p']);
 Route::post('/03_profile/edit', [DashboardController::class, 'updateProfile_p']);
+Route::post('/03_profile/upload', [DashboardController::class, 'upload_p']);
 
 Route::get('/03_messages', [DashboardController::class, 'showMessages_p']);
 Route::get('/03_reviews', [DashboardController::class, 'showReviews_p']);
@@ -119,6 +120,7 @@ Route::post('/test2_bookings/edit/{booking_id}', [DashboardController::class, 'u
 Route::get('/test2_profile', [DashboardController::class, 'showProfile_p']);
 Route::get('/test2_profile/edit', [DashboardController::class, 'editProfile_p']);
 Route::post('/test2_profile/edit', [DashboardController::class, 'updateProfile_p']);
+Route::post('/test2_profile/upload', [DashboardController::class, 'upload_p']);
 
 Route::get('/test2_messages', [DashboardController::class, 'showMessages_p']);
 Route::get('/test2_reviews', [DashboardController::class, 'showReviews_p']);

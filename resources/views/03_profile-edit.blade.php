@@ -29,6 +29,7 @@
         
         @include("layouts/03_topbar")
 
+        <!-- ================ Map ================= -->
         <div class="details">
                 <div class="mapsNearU">
                     <div class="cardHeader">
@@ -59,17 +60,29 @@
                                 </a>
                             </div>
                             <div style="border:0; text-align: center;">
-                                <!-- <input id="upload" type="file" accept="image/*" style="border:0; text-align: center; margin-left: 50px;" /> -->
+                                <form action="/test2_profile/upload" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="file" name="image"></input><br>
+                                    <button style="border: 1px solid #ccc; padding: 6px 12px; color:#dca56a; background-color: #2d4b5a;" type="submit">Submit</button>
+                                </form>
 
                             </div>
+                            <a href="#" >
+                                <span class="icon" >
+                                  <img src="/2_assets/imgs/sitenamedbg.png" style="margin-top: 100px;" />
+                                </span>
+                                
+                            </a>
                         </div>
                     </div>
 
                     
                 </div>
-
-
-            <div class="therapists">
+                
+                
+                
+                <!-- ================= Therapists ================ -->
+                <div class="therapists">
                     <table>
                         <thead>
                             <tr>
@@ -80,32 +93,46 @@
                         <tbody>
                         @if (count($user) > 0)
                         @foreach ($user as $u)
+                        <form method="POST" action="/02_profile/edit">
+                        @csrf
                           <tr>
                             <td>First Name:</td>
-                            <td style="text-align: center;" contenteditable="false" name="first_name">{{$u->first_name}}</td>
+                            <td style="text-align: center;" contenteditable="true">
+                            <input type="text" name="first_name" value="{{$u -> first_name}}"></input><br>
+                            </td>
                           </tr>
                           <tr>
                             <td>Last Name</td>
-                            <td style="text-align: center;" contenteditable="false" name="last_name">{{$u->last_name}}</td>
+                            <td style="text-align: center;" contenteditable="true">
+                            <input type="text" name="last_name" value="{{$u -> last_name}}"></input><br>
+                            </td>
                           </tr>
                           <tr>
                             <td>Email: </td>
-                            <td style="text-align: center;" contenteditable="false" name="email_address">{{$u->email_address}}</td>
+                            <td style="text-align: center;" contenteditable="true">
+                            <input type="text" name="email_address" value="{{$u -> email_address}}"></input><br>
+                            </td>
                           </tr>
                           <tr>
                             <td>Contact#:</td>
-                            <td style="text-align: center;" contenteditable="false" name="mobile_number">{{$u->mobile_number}}</td>
+                            <td style="text-align: center;" contenteditable="true">
+                            <input type="text" name="mobile_number" value="{{$u -> mobile_number}}"></input><br>
+                            </td>
                           </tr>
                           <tr>
                             <td>Address:</td>
-                            <td style="text-align: center;" contenteditable="false" name="location">{{$u->location}}</td>
+                            <td style="text-align: center;" contenteditable="true">
+                            <input type="text" name="location" value="{{$u -> location}}"></input><br>
+                            </td>
                           </tr>
                         @endforeach
                         @endif
                         </tbody>
                     </table>
                     <div class="editProfile">
-                        <a  href="/03_profile/edit"><button class="editButton">Edit</button></a>
+                        
+                    <button class="editButton" type="submit">Save</button>
+                      </form>
                     </div>
 
 

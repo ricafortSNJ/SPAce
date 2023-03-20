@@ -10,23 +10,23 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="/admin/index">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
                         <span class="title">Dashboard</span>
                     </a>
-                </li>
+                </li> -->
 
-                <li>
+                <!-- <li>
                     <a href="/admin/users">
                         <span class="icon">
                             <ion-icon name="person-add-outline"></ion-icon>
                         </span>
                         <span class="title">Users</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="/admin/profiles">
@@ -46,14 +46,14 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="/admin/reviews">
                         <span class="icon">
                             <ion-icon name="star-half-outline"></ion-icon>
                         </span>
                         <span class="title">Reviews</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="/admin/bookings">
@@ -64,14 +64,14 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="/04_messages">
                         <span class="icon">
                             <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
                         </span>
                         <span class="title">Messages</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="/logout">
                         <span class="icon">

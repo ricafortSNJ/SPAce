@@ -11,6 +11,6 @@
                 </div>
 
                 <div class="user">
-                    <img src="/2_assets/imgs/che.jpg" alt="">
+                    <img src="/image_uploads/{{Session::get("user_id")}}.jpg" alt="">
                 </div>
             </div>

@@ -46,58 +46,6 @@
                     </div>
 
                     <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="/2_assets/imgs/f1.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Violet <br /> 
-                                    <span>Meet me at 6pm.</span><br />
-                                    <span id="datetime"></span><br />
-                                </h4>
-                            </td>
-                            <td></td>
-                            <script>
-                                var datetime = document.getElementById("datetime");
-                                var currentDate = new Date();
-                                datetime.innerHTML = currentDate.toLocaleString();
-                            </script>
-                        
-                            <td  style="text-align: right;">
-                                <button  onclick="document.getElementById('id01').style.display='block'" class="btn message" id="message">
-                                    Message
-                                </button>
-
-                                <div id="id01" class="w3-modal">
-                                    <div class="w3-modal-content w3-card-4">
-                                      <header class="w3-container w3-teal"> 
-                                        <span onclick="document.getElementById('id01').style.display='none'" 
-                                        class="w3-button w3-display-topright">&times;</span>
-                                        <h2 style="text-align: left !important">Message</h2>
-                                      </header>
-                                      <div class="container">
-                                        <form>
-                                            <label class=""></label>
-                                            <input class="w3-input " type="text" placeholder="Enter message here">
-                                            <!-- <input class="w3-input " type="text">
-                                            <input class="w3-input " type="text"> -->
-                                        </form>
-                                        
-                                      </div>
-                                      <footer class="w3-container w3-teal">
-                                        <form action="submit">
-                                        <button class="btn message" id="message">Send</button>
-                                      </form>
-                                      </footer>
-                                    </div>
-                                </div>
-
-                                <button class="btn message" id="message" href="#">
-                                    Profile
-                                </button>
-                                
-                            </td>
-                        </tr>
 
                         @if (count($messages_received) > 0)
                         @foreach ($messages_received as $mr)

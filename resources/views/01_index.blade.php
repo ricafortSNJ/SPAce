@@ -105,13 +105,13 @@
                     <div class="row pt-3">
                         <div class="col-6">
                             <div class="bg-light text-center p-4">
-                                <h3 class="display-4 text-primary" data-toggle="counter-up">99</h3>
+                                <h3 class="display-4 text-primary" data-toggle="counter-up">74</h3>
                                 <h6 class="text-uppercase">Spa Specialist</h6>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="bg-light text-center p-4">
-                                <h3 class="display-4 text-primary" data-toggle="counter-up">999</h3>
+                                <h3 class="display-4 text-primary" data-toggle="counter-up">125</h3>
                                 <h6 class="text-uppercase">Happy Clients</h6>
                             </div>
                         </div>
@@ -234,9 +234,12 @@
                                 <div class="form-group">
                                     <select  name="service" class="custom-select bg-transparent px-4" style="height: 47px;">
                                         <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 1</option>
-                                        <option value="3">Service 1</option>
+                                        <option value="1">Body Massage</option>
+                                        <option value="2">Stone Therapy</option>
+                                        <option value="3">Facial Therapy</option>
+                                        <option value="4">Skin Care</option>
+                                        <option value="5">Stream Bath</option>
+                                        <option value="6">Face Masking</option>
                                     </select>
                                 </div>
                             </div>

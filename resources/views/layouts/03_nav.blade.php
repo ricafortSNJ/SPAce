@@ -10,14 +10,14 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="/03_dashboard">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
                         <span class="title">Dashboard</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="/03_profile">
@@ -53,14 +53,14 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="/03_earnings">
                         <span class="icon">
                             <ion-icon name="cash-outline"></ion-icon>
                         </span>
                         <span class="title">Earnings</span>
                     </a>
-                </li>
+                </li> -->
 
         
 

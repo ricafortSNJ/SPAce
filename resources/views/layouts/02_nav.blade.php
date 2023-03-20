@@ -54,7 +54,7 @@
                         <span class="title">Reviews</span>
                     </a>
                 </li>
-
+<!-- 
                 <li>
                     <a href="/02_payments">
                         <span class="icon">
@@ -62,7 +62,7 @@
                         </span>
                         <span class="title">Payment</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="/logout">
