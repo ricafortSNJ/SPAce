@@ -76,13 +76,13 @@
                         <div class="row pt-3">
                             <div class="col-6">
                                 <div class="bg-light text-center p-4">
-                                    <h3 class="display-4 text-primary" data-toggle="counter-up">99</h3>
+                                    <h3 class="display-4 text-primary" data-toggle="counter-up">74</h3>
                                     <h6 class="text-uppercase">Spa Specialist</h6>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="bg-light text-center p-4">
-                                    <h3 class="display-4 text-primary" data-toggle="counter-up">999</h3>
+                                    <h3 class="display-4 text-primary" data-toggle="counter-up">125</h3>
                                     <h6 class="text-uppercase">Happy Clients</h6>
                                 </div>
                             </div>
